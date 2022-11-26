@@ -1,0 +1,97 @@
+body {
+  color: #000;
+  font-family: Helvetica, Arial, sans-serif;
+  background: #eef2ff
+    url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAADICAYAAAAp8ov1AAAAv0lEQVQoU43KVw6DMBAEUN//dknohN5JQkuvzlgCCYRt+Hna2RmyUStK5Gw1TGbU7Cdgp6NYi2JgrBjNEqqJiYSWEs1aRLcxGdOxOGDscckxHUxM58zHclHwsL0LJUL2PtoZV/YDTiDADVH03Ng1wYsQhfjxnRIeQYJixoP9QJgKiDIUPU92TYhzRCFJ8aKER1qi4POmJDsskh8xGfNhcaA44ZJTVpiU1VfCoUa7gmPzo2QtpxZjCZS1E6oOUcQfPqvoG2OZddMAAAAASUVORK5CYII=)
+    top center repeat-x;
+}
+
+a, a:visited {
+  color: #34345c;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #d00
+}
+
+h1, h2, h3 {
+  color: #af0a0f
+}
+
+hr {
+  border-color: #b7c5d9
+}
+
+header h1#boardName {
+  color: #af0a0f
+}
+
+.post-form input[type=text], .post-form input[type=password], .post-form input[type=file], .post-form textarea, .post-form label, .post-form select {
+  padding: 2px 4px 3px
+}
+
+.post-form input[type=text], .post-form input[type=password], .post-form input[type=file], .post-form textarea {
+  border: 1px solid #aaa
+}
+
+.post-form label {
+  border: 1px solid #000;
+  background-color: #98e;
+  color: #000;
+  font-weight: 700
+}
+
+.post .quote-link {
+  color: #d00
+}
+
+.post.reply {
+
+}
+
+.thread .post.reply:before {
+  color: #b7c5d9
+}
+
+div.post div.post-control span.name {
+  color: #117743;
+}
+
+div.post div.post-control span.subject {
+  color: #0f0c5d
+}
+
+div.post div.post-control span.post-no a {
+  color: #000
+}
+
+div.post div.post-control span.post-no a:hover, form.post-form .option-btn:hover {
+  
+}
+
+form.post-form .option-btn {
+  border: 1px solid #89a;
+  color: #34345c;
+  /*box-shadow: 0px 0px 1px 0px #89a*/
+}
+
+form.post-form .option-btn:hover {
+  border-color: #ba9dbf;
+  /*background-color: rgba(214, 186, 208, 0.75);*/
+  background-color: #d6bad0;
+  box-shadow: 0px 0px 2px 0px #ba9dbf;
+}
+
+form.post-form .option-btn:hover a {
+  color: #d00!important;
+}
+
+form.post-form .option-btn a:hover {
+  color: #f11!important
+}
+
+.post.reply .post-inner {
+  background-color: #d6daf0;
+  border: 1px solid #b7c5d9
+}

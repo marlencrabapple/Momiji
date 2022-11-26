@@ -1,0 +1,473 @@
+html {
+
+}
+
+body {
+  font-size: 10pt
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+
+}
+
+.scratch {
+  position: absolute;
+  visibility: hidden;
+  height: auto;
+  width: auto;
+  white-space: nowrap
+}
+
+nav.main {
+  font-size: small;
+  color: #89a!important;
+}
+
+nav.main > div {
+  display: inline-block;
+}
+
+nav.main a {
+  font-size: small
+}
+
+nav.main a:first-child {
+  margin-left: -2px
+}
+
+nav.main a:last-child {
+  margin-right: -2px
+}
+
+nav.main > div.boards {
+
+}
+
+nav.main > div.links {
+  float: right
+}
+
+nav.main > div:before, .bracket::before {
+  content: '['
+}
+
+nav.main > div:after, .bracket::after {
+  content: ']'
+}
+
+.bracket > * {
+  word-spacing: -2px
+}
+
+header {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+header img {
+  width: 300px;
+  height: 100px;
+  display: block;
+  text-align:center;
+  margin: 0 auto;
+  border: 1px solid #999;
+  padding-top: 1em;
+  box-sizing: border-box;
+}
+
+header h1 {
+  font-family: Tahoma,sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -2px;
+  text-align: center;
+  margin-top: 0.5em
+}
+
+.post-form {
+  display: table;
+  width: 468px;
+  margin: 0 auto;
+  border-spacing: 1px;
+}
+
+.post-form div.input-row {
+  display: table-row
+}
+
+.post-form input[type=text], .post-form input[type=password], .post-form input[type=file], .post-form textarea, .post-form label, .post-form select {
+  display: table-cell;
+  padding: 2px 4px 3px;
+  vertical-align: middle;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10pt;
+  outline: none;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+form.post-form div.input-row label {
+  display: table-cell;
+  padding: 0 5px
+}
+
+.post-form input, .post-form textarea, .post-form select {
+  display: inline-block!important
+}
+
+form.post-form div.ch-row.input-row input {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+form.post-form div.ch-row.input-row img.captcha {
+  vertical-align: middle;
+  margin-left: .5em;
+}
+
+form.post-form input[type=file] {
+  border: none;
+  padding: 0;
+  margin: 0
+}
+
+form.post-form input[name=delpass] {
+  width: 20%;
+  font-size: 11pt;
+  padding: 2px 4px;
+  margin-right: 6px;
+}
+
+form.post-form div.post-opts-curr {
+  margin-top: -1.8em;
+  position: absolute;
+  word-spacing: -2px;
+}
+
+form.post-form select[name=options] {
+  display: inline-block;
+  height: 1.75em;
+  margin-bottom: 1.9em
+}
+
+form.post-form .option-btn {
+  font-size: 9.5pt;
+  padding: 0 6px;
+  display: inline-block;
+  cursor: pointer;
+  opacity: 0.75;
+  border-radius: .25em;
+  line-height: 1.75em;
+  height: 1.75em;
+  transition: all .05s linear;
+  vertical-align: top;
+}
+
+form.post-form .option-btn a {
+  font-size: .7em;
+  vertical-align: middle;
+  display: inline-block;
+  color: inherit;
+  opacity: .75;
+  margin-left: 2px;
+  line-height: 1.25em;
+  height: 1.25em;
+}
+
+form.post-form .option-btn:hover {
+  opacity: 1;
+  font-weight: bolder;
+  padding: 2px 7px;
+}
+
+form.post-form .option-btn:hover .option-btn-txt {
+  text-shadow: 0 0 1px #fff;
+}
+
+form.post-form .option-btn:hover a {
+  font-weight: bolder;
+  opacity: 1;
+  text-shadow: 0 0 1px #fff;
+}
+
+form.post-form span.input-control {
+  margin-left: .5em
+}
+
+form.post-form span.input-control:before {
+  content: '['
+}
+
+form.post-form span.input-control:after {
+  content: ']'
+}
+
+form.post-form span.input-control a {
+  padding: 0 .1em;
+  font-size: smaller;
+}
+
+.post-form input[type=text], .post-form .shadow-group {
+  width: 256px
+}
+
+.post-form textarea {
+  width: 82%;
+}
+
+.post-form input[name=subject] {
+  margin-right: 2px!important;
+  width: 256px;
+  flex-grow: unset
+}
+
+.post-form .shadow-group {
+
+}
+
+.post-form .shadow-group > * {
+  margin: 0
+}
+
+.post-form .shadow-group input[name=namesugs], .post-form .shadow-group input[name=namesugs2] {
+  position: absolute
+}
+
+.post-form .shadow-group input[name=name] {
+  background-color: transparent;
+}
+
+.post-form .shadow-group input[name=namesugs2] {
+  z-index: -1;
+  background-color: transparent;
+  text-align: right;
+  visibility: hidden;
+}
+
+.post-form .shadow-group input[name=namesugs] {
+  z-index: -2;
+  background-color: #fff
+}
+
+.post-form .submit-row * {
+  flex: auto;
+}
+
+.post-form .submit-row {
+  display: flex;
+  width: 82%!important
+}
+
+.post-form input[name=submit] {
+  vertical-align: middle;
+  flex: auto
+}
+
+.post-form input[name=challenge] {
+  width: 30%
+}
+
+div.quick-reply {
+
+}
+
+div.quick-reply form[name=quickreply] {
+  
+}
+
+ul.board-info {
+  margin: 0.75em auto 1em;
+  padding-left: 2em;
+  font-size: smaller;
+  width: 468px;
+  box-sizing: border-box;
+}
+
+#announcements h2 {
+  text-align: center;
+  color: #f00!important
+}
+
+#blotter {
+  margin: 0 auto;
+  display: none
+}
+
+div.thread {
+  clear: both
+}
+
+div.thread div.post.reply:before {
+  content: ''
+}
+
+div.thread div.post.reply:before {
+  content: '>>'
+}
+
+div.post {
+
+}
+
+div.post div.post-control {
+  height: 1.25em;
+}
+
+div.post div.post-control > * {
+  display: inline-block;
+  vertical-align: unset;
+}
+
+.thread div.post div.post-control input[type=checkbox] {
+  margin: 0;
+  padding: 0;
+  margin-right: 2px
+}
+
+div.post div.post-control span.post-no {
+  word-spacing: -1rem;
+}
+
+div.post div.post-control span.name, div.post div.post-control span.subject {
+  font-weight: 700;
+}
+
+div.post div.post-control span.menu-toggle {
+  font-size: 9pt;
+  vertical-align: text-top;
+  margin-left: 1px;
+  word-spacing: -2px;
+}
+
+div.post div.post-control span.menu-toggle:before {
+  content: '['
+}
+
+div.post div.post-control span.menu-toggle:after {
+  content: ']'
+}
+
+div.post div.post-control span.menu-toggle a {
+  display: inline-block;
+  border-style: solid;
+  border-width: 7px 4px 0;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+}
+
+div.post.op {
+  display: inline
+}
+
+div.post.op div.post-control {
+  display: inline-block;
+  margin-top: 10pt;
+  padding-top: .35em
+}
+
+div.post .post-inner {
+  display: inline-block;
+  vertical-align: top
+}
+
+div.post.op .post-inner {
+  display: inline
+}
+
+div.post.reply {
+  margin-top: .25em;
+  display: block
+}
+
+div.post.reply div.post-control {
+  padding: 2px 2px
+}
+
+div.post.reply .post-inner {
+  padding: 2px 3px;
+  border-left: none;
+  border-top: none
+}
+
+div.post.op div.file {
+  float: left
+}
+
+div.post.op div.file div.file-header {
+  position: absolute
+}
+
+div.post.reply div.file {
+  display: inline
+}
+
+div.post div.file a.filename {
+  text-decoration: underline;
+}
+
+div.post.reply div.file {
+  margin-left: 2px;
+  margin-right: -1.5em
+}
+
+div.post.op div.file a.file-link {
+  display: inline-block;
+  margin-right: 1.5em
+}
+
+div.post div.file img.file-thumb {
+  margin-top: 2px;
+  margin-left: 1.5em
+}
+
+div.post.op div.file img.file-thumb {
+  max-width: 250px;
+  max-height: 250px;
+  margin-top: 1.25em
+}
+
+div.post.reply div.file img.file-thumb {
+  max-width: 125px;
+  max-height: 125px
+}
+
+.post .quote-link {
+  text-decoration: underline;
+}
+
+.post .post-inner .post-content {
+  margin: 1em 3em 0
+}
+
+.post .post-inner .post-content p:first-child {
+  margin-top: 0
+}
+
+.post.reply .post-inner .post-content {
+  display: inline-block;
+  vertical-align: top;
+}
+
+hr {
+  border: none;
+  border-top-color: currentcolor;
+  border-top-style: none;
+  border-top-width: medium;
+  border-top: 1px solid;
+  height: 0;
+}
+
+footer {
+  text-align: center;
+  font-size: x-small;
+  padding-bottom: 1.25em;
+  margin-top: 2em;
+}
+
+footer hr {
+  margin-bottom: 1.75em
+}
