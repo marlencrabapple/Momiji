@@ -46,10 +46,6 @@ header h1#boardName {
   color: #d00
 }
 
-.post.reply {
-
-}
-
 .thread .post.reply:before {
   color: #b7c5d9
 }
@@ -64,10 +60,6 @@ div.post div.post-control span.subject {
 
 div.post div.post-control span.post-no a {
   color: #000
-}
-
-div.post div.post-control span.post-no a:hover, form.post-form .option-btn:hover {
-  
 }
 
 form.post-form .option-btn {

@@ -1,17 +1,9 @@
-html {
-
-}
-
 body {
   font-size: 10pt
 }
 
 a, a:visited {
-  text-decoration: none;
-}
-
-a:hover {
-
+  text-decoration: none
 }
 
 .scratch {
@@ -24,11 +16,11 @@ a:hover {
 
 nav.main {
   font-size: small;
-  color: #89a!important;
+  color: #89a!important
 }
 
 nav.main > div {
-  display: inline-block;
+  display: inline-block
 }
 
 nav.main a {
@@ -43,10 +35,6 @@ nav.main a:last-child {
   margin-right: -2px
 }
 
-nav.main > div.boards {
-
-}
-
 nav.main > div.links {
   float: right
 }
@@ -59,13 +47,14 @@ nav.main > div:after, .bracket::after {
   content: ']'
 }
 
-.bracket > * {
-  word-spacing: -2px
+.bracket {
+  word-spacing: -2px;
+  color: #89a
 }
 
 header {
   margin-left: auto;
-  margin-right: auto;
+  margin-right: auto
 }
 
 header img {
@@ -76,7 +65,7 @@ header img {
   margin: 0 auto;
   border: 1px solid #999;
   padding-top: 1em;
-  box-sizing: border-box;
+  box-sizing: border-box
 }
 
 header h1 {
@@ -92,7 +81,7 @@ header h1 {
   display: table;
   width: 468px;
   margin: 0 auto;
-  border-spacing: 1px;
+  border-spacing: 1px
 }
 
 .post-form div.input-row {
@@ -107,7 +96,7 @@ header h1 {
   font-size: 10pt;
   outline: none;
   margin: 0;
-  box-sizing: border-box;
+  box-sizing: border-box
 }
 
 form.post-form div.input-row label {
@@ -125,7 +114,7 @@ form.post-form div.ch-row.input-row input {
 
 form.post-form div.ch-row.input-row img.captcha {
   vertical-align: middle;
-  margin-left: .5em;
+  margin-left: .5em
 }
 
 form.post-form input[type=file] {
@@ -138,13 +127,19 @@ form.post-form input[name=delpass] {
   width: 20%;
   font-size: 11pt;
   padding: 2px 4px;
-  margin-right: 6px;
+  margin-right: 2px
+}
+
+form.post-form small.input-help span.bracket {
+  margin-right: 2px;
+  word-spacing: -1px;
+  color: #89a
 }
 
 form.post-form div.post-opts-curr {
   margin-top: -1.8em;
   position: absolute;
-  word-spacing: -2px;
+  word-spacing: -2px
 }
 
 form.post-form select[name=options] {
@@ -163,7 +158,7 @@ form.post-form .option-btn {
   line-height: 1.75em;
   height: 1.75em;
   transition: all .05s linear;
-  vertical-align: top;
+  vertical-align: top
 }
 
 form.post-form .option-btn a {
@@ -174,23 +169,23 @@ form.post-form .option-btn a {
   opacity: .75;
   margin-left: 2px;
   line-height: 1.25em;
-  height: 1.25em;
+  height: 1.25em
 }
 
 form.post-form .option-btn:hover {
   opacity: 1;
   font-weight: bolder;
-  padding: 2px 7px;
+  padding: 2px 7px
 }
 
 form.post-form .option-btn:hover .option-btn-txt {
-  text-shadow: 0 0 1px #fff;
+  text-shadow: 0 0 1px #fff
 }
 
 form.post-form .option-btn:hover a {
   font-weight: bolder;
   opacity: 1;
-  text-shadow: 0 0 1px #fff;
+  text-shadow: 0 0 1px #fff
 }
 
 form.post-form span.input-control {
@@ -207,7 +202,7 @@ form.post-form span.input-control:after {
 
 form.post-form span.input-control a {
   padding: 0 .1em;
-  font-size: smaller;
+  font-size: smaller
 }
 
 .post-form input[type=text], .post-form .shadow-group {
@@ -215,17 +210,13 @@ form.post-form span.input-control a {
 }
 
 .post-form textarea {
-  width: 82%;
+  width: 82%
 }
 
 .post-form input[name=subject] {
   margin-right: 2px!important;
   width: 256px;
   flex-grow: unset
-}
-
-.post-form .shadow-group {
-
 }
 
 .post-form .shadow-group > * {
@@ -237,7 +228,7 @@ form.post-form span.input-control a {
 }
 
 .post-form .shadow-group input[name=name] {
-  background-color: transparent;
+  background-color: #fff
 }
 
 .post-form .shadow-group input[name=namesugs2] {
@@ -245,15 +236,18 @@ form.post-form span.input-control a {
   background-color: transparent;
   text-align: right;
   visibility: hidden;
+  font-weight: bolder
 }
 
 .post-form .shadow-group input[name=namesugs] {
   z-index: -2;
-  background-color: #fff
+  background-color: #fff;
+  visibility: hidden;
+  word-spacing: -2px
 }
 
 .post-form .submit-row * {
-  flex: auto;
+  flex: auto
 }
 
 .post-form .submit-row {
@@ -270,20 +264,12 @@ form.post-form span.input-control a {
   width: 30%
 }
 
-div.quick-reply {
-
-}
-
-div.quick-reply form[name=quickreply] {
-  
-}
-
 ul.board-info {
   margin: 0.75em auto 1em;
   padding-left: 2em;
   font-size: smaller;
   width: 468px;
-  box-sizing: border-box;
+  box-sizing: border-box
 }
 
 #announcements h2 {
@@ -308,17 +294,13 @@ div.thread div.post.reply:before {
   content: '>>'
 }
 
-div.post {
-
-}
-
 div.post div.post-control {
-  height: 1.25em;
+  height: 1.25em
 }
 
 div.post div.post-control > * {
   display: inline-block;
-  vertical-align: unset;
+  vertical-align: unset
 }
 
 .thread div.post div.post-control input[type=checkbox] {
@@ -328,18 +310,29 @@ div.post div.post-control > * {
 }
 
 div.post div.post-control span.post-no {
-  word-spacing: -1rem;
+  word-spacing: -1rem
 }
 
 div.post div.post-control span.name, div.post div.post-control span.subject {
-  font-weight: 700;
+  font-weight: 700
+}
+
+div.post-control span.reply-link {
+  word-spacing: -2px
+}
+
+div.post-control span.reply-link::before {
+  content: '['
+}
+
+div.post-control span.reply-link::after {
+  content: ']'
 }
 
 div.post div.post-control span.menu-toggle {
-  font-size: 9pt;
   vertical-align: text-top;
   margin-left: 1px;
-  word-spacing: -2px;
+  word-spacing: -2px
 }
 
 div.post div.post-control span.menu-toggle:before {
@@ -356,7 +349,7 @@ div.post div.post-control span.menu-toggle a {
   border-width: 7px 4px 0;
   border-right-color: transparent;
   border-bottom-color: transparent;
-  border-left-color: transparent;
+  border-left-color: transparent
 }
 
 div.post.op {
@@ -449,7 +442,7 @@ div.post.reply div.file img.file-thumb {
 
 .post.reply .post-inner .post-content {
   display: inline-block;
-  vertical-align: top;
+  vertical-align: top
 }
 
 hr {
@@ -458,16 +451,127 @@ hr {
   border-top-style: none;
   border-top-width: medium;
   border-top: 1px solid;
-  height: 0;
+  height: 0
 }
 
 footer {
   text-align: center;
   font-size: x-small;
   padding-bottom: 1.25em;
-  margin-top: 2em;
+  margin-top: 2em
 }
 
 footer hr {
   margin-bottom: 1.75em
+}
+
+div.media-pane {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 25%;
+  background-color: #000;
+  color: #fff;
+  box-sizing: border-box;
+  box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.25)
+}
+
+div.media-pane > div.media-header, div.media-pane > div.media-foot {
+  left: 0;
+  position: absolute;
+  padding: 10px 12px 0;
+  box-sizing: border-box;
+  opacity: 0.5;
+  transition: all .05s linear
+}
+
+div.media-pane > div.media-header {
+  top: 0;
+  text-align: right;
+  background-image: linear-gradient(#000, transparent)
+}
+
+div.media-pane:hover * {
+  opacity: 1!important;
+  transition: all .05s linear
+}
+
+div.media-pane > div.media-header > a.media-exit {
+  content: '✕';
+  color: transparent;
+  text-shadow: 1px 1px 1px #fff;
+  font-size: x-large;
+  font-weight: lighter;
+}
+
+div.media-pane > div {
+  width: 100%
+}
+
+div.media-pane > div.media-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%
+}
+
+div.media-pane > div.media-content > video {
+  width: 100%;
+  display: inline-block
+}
+
+div.media-pane > div.media-foot {
+  bottom: 0;
+  background-image: linear-gradient(transparent, #000)
+}
+
+div.media-pane > div.media-header > div.media-info {
+  height: 0;
+  overflow: hidden;
+  text-align: left;
+  transition: all .05s linear
+}
+
+div.media-pane:hover > div.media-header > div.media-info {
+  height: auto;
+  transition: all .05s linear
+}
+
+div.media-pane > div.media-header > div.media-info > h3 {
+  color: #fff;
+  font-weight: bolder
+}
+
+div.media-pane > div.media-foot > div.media-controls {
+  width: 75%;
+  margin: 0 auto 20px;
+  text-align: center;
+  font-size: 36px
+}
+
+div.media-pane > div.media-foot > div.media-controls a {
+  color: #fff!important;
+  letter-spacing: -4px;
+  vertical-align: middle
+}
+
+div.media-pane > div.media-foot > div.media-controls a img {
+  height: 26px;
+  width: auto
+}
+
+div.site-pane {
+  margin-left: 25%;
+  padding-left: 8px
+}
+
+a.pane-toggle {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  font-size: xx-large;
+  margin-left: 12px;
+  margin-bottom: 4px;
+  content: '&#10154;'
 }

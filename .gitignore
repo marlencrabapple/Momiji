@@ -1,3 +1,14 @@
 .DS_Store
 ._*
 .carmel
+static/boards/*
+!static/boards/keep
+*.yml
+*.sqlite3
+*.sqlite
+*.sqlite3
+*.db
+*.db3
+*.s3db
+*.sl3
+

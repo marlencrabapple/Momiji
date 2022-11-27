@@ -6,8 +6,11 @@ use autodie;
 use Plack;
 use Plack::Request;
 use Data::Dumper;
+use Path::Tiny;
+use YAML::Tiny;
 use JSON::MaybeXS;
 use Text::Xslate;
+use GD;
 
 our $tx = Text::Xslate->new(
   #cache => $ENV{PLACK_ENV} eq 'development' ? 0 : 1,
@@ -63,7 +66,7 @@ sub handler {
 
   my $req = Plack::Request->new($env);
 
-  res($tx->render('hi.tx', { 
+  res($tx->render('board-index.tx', { 
     hi => Dumper($req),
     static_res_base => '/s/'
   }), 200)

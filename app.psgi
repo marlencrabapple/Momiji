@@ -9,7 +9,7 @@ use Plack::App::File;
 
 builder {
   enable "Plack::Middleware::Static",
-    path => sub { s!^/s/!! }, root => 'static/';
+    path => sub { s!^/s/!! }, root => 'static/assets/';
 
   Momiji->new->to_app
 }

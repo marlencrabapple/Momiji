@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>/asdf/ - Asdf</title>
+    <link rel="stylesheet" href="<: $static_res_base :>css/momiji.css">
+    <link rel="stylesheet" href="<: $static_res_base :>css/yotsublue.css">
+    <script type="text/javascript" src="<: $static_res_base :>js/momiji.js" defer></script>
+    <script>
+      console.log('hi')
+    </script>
+  </head>
+  <body>
+    <div class="site-pane">
+      <nav class="main">
+        <div class="boards">
+          <a href="">asdf</a> /
+          <a href="">fdsa</a>
+        </div>
+        <div class="links">
+          <a href="">Home</a>
+        </div>
+      </nav>
+      <header>
+        <img src="" alt="asdf" title="asdf">
+        <h1 id="boardName">/asdf/ - Asdf</h1>
+      </header>
+      <hr>
+      <form id="postForm" class="post-form" name="post" method="POST" type="form/multipart">
+        <div class="input-row">
+          <label for="name">Name</label>
+          <div class="shadow-group">
+            <div class="scratch"></div>
+            <input type="text" name="namesugs" disabled>
+            <input type="text" name="namesugs2" disabled>
+            <input type="text" name="name" placeholder="Anonymous">
+          </div>
+        </div>
+        <div class="input-row">
+          <label for="link">Link</label>
+          <input type="text" name="link">
+        </div>
+        <div class="input-row">
+          <label for="link">Subject</label>
+          <div class="submit-row">
+            <input type="text" name="subject">
+            <input type="button" type="submit" name="submit" value="Post">
+          </div>
+        </div>
+        <div class="input-row">
+          <label for="comment">Comment</label>
+          <textarea name="comment" cols="48" rows="4" wrap="soft"></textarea>
+        </div>
+        <div class="input-row ch-row">
+          <label for="challenge">Verification</label>
+          <input type="text" name="challenge">
+          <img alt="" class="captcha" src="//localhost:5001/captcha.pl?key=mainpage&amp;dummy=">
+        </div>
+        <div class="input-row">
+          <label for="file">File</label>
+          <input type="file" name="file">
+        </div>
+        <div class="input-row">
+          <label for="options">Options</label>
+          <select name="options">
+            <option>...</option>
+            <option value="sage">sage</option>
+            <option value="sage">noko</option>
+            <option value="sage">spoiler</option>
+            <option value="sage">nsfw</option>
+            <option value="sage">meta</option>
+            <option value="sage">off-topic</option>
+            <option>--</option>
+            <optgroup>
+              <option>Geolocation</option>
+              <option>Kekistan</option>
+              <option>Anarchist</option>
+            </optgroup>
+          </select>
+          <div class="post-opts-curr">
+            <span class="option-btn">
+              <span class="option-btn-txt">
+                noko
+                <a href="javascript:void(0)">x</a>
+              </span>
+            </span>
+            <span class="option-btn">
+              <span class="option-btn-txt">
+                &target; &#127988;
+                <a href="javascript:void(0)">x</a>
+              </span>
+            </span>
+            <span class="option-btn">
+              <span class="option-btn-txt">
+                &#9203; 1d
+                <a href="javascript:void(0)">x</a>
+              </span>
+            </span>
+          </div>
+        </div>
+        <div class="input-row">
+          <label for="delpass">Password</label>
+          <input type="password" name="delpass" value="hihihihihi">
+          <small class="input-help">
+            <span class="bracket">
+              <a href="">&#128065;</a> &bullet;
+              <a href="">&#128203;</a>
+            </span>
+            (for streaming and post/file deletion)
+          </small>
+        </div>
+      </form>
+      <ul class="board-info">
+        <li>Supported filetypes are: GIF, JPG, PNG</li>
+        <li>Maximum filesize allowed is 5 MB</li>
+        <li>Images greater than 250x250 pixels will be thumbnailed</li>
+      </ul>
+      <hr>
+      <div id="announcements">
+        <h2>hello world c:</h2>
+        <div id="blotter">
+          <p>...</p>
+        </div>
+      </div>
+      <hr>
+      <form name="delete" method="POST">
+        <div class="thread">
+          <div class="post op" id="no89879505">
+            <div class="post-inner">
+              <div class="file">
+                <div class="file-header">
+                  File: <a href="" class="filename">MV5BMjIyNTQ5NjQ1OV5BMl5Ba(...).jpg</a>
+                  <span class="file-info">(1.3 MB, 1600x1408)</span>
+                </div>
+                <a href="" class="file-link" target="_blank">
+                  <img class="file-thumb" src="<: $static_res_base :>i/rw435q.jpg">
+                </a>
+              </div>
+              <div class="post-control">
+                <input type="checkbox" name="posts[]">
+                <span class="subject">This is a subject</span>
+                <span class="name">Anonymous</span>
+                <span class="time">11/20/22(Sun)18:23:54</span>
+                <span class="post-no">
+                  <a href="javascript:void(0)">No.</a>
+                  <a href="javascript:void(0)">89879505</a>
+                </span>
+                <span class="reply-link"><a href="">Reply</a></span>
+                <span class="menu-toggle">
+                  <a href="javascript:void(0)"></a>
+                </span>
+              </div>
+              <div class="post-content">
+                <p>Hi</p>
+              </div>
+            </div>
+          </div>
+          <div class="post reply" id="no89879746">
+            <div class="post-inner">
+              <div class="post-control">
+                <input type="checkbox" name="posts[]">
+                <span class="name">Anonymous</span>
+                <span class="time">11/20/22(Sun)18:23:54</span>
+                <span class="post-no">
+                  <a href="javascript:void(0)">No.</a>
+                  <a href="javascript:void(0)">89879746</a>
+                </span>
+                <span class="menu-toggle">
+                  <a href="javascript:void(0)"></a>
+                </span>
+              </div>
+              <div class="file">
+                File: <a href="" class="filename">1669005609463.jpg</a>
+                <span class="file-info">(202 KB, 1024x768)</span>
+                <br>
+                <a href="" class="file-link" target="_blank">
+                  <img class="file-thumb" src="<: $static_res_base :>i/2ew4i8.png">
+                </a>
+              </div>
+              <div class="post-content">
+                <p>Hello <a class="quote-link" href="">&gt;&gt;89879505</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="post reply" id="no89879746">
+            <div class="post-inner">
+              <div class="post-control">
+                <input type="checkbox" name="posts[]">
+                <span class="name">Anonymous</span>
+                <span class="time">11/21/22(Mon)22:04:04</span>
+                <span class="post-no">
+                  <a href="javascript:void(0)">No.</a>
+                  <a href="javascript:void(0)">177081009</a>
+                </span>
+                <span class="menu-toggle">
+                  <a href="javascript:void(0)"></a>
+                </span>
+              </div>
+              <div class="post-content">
+                <p>
+                  <a class="quote-link" href="">&gt;&gt;177077966</a><br>
+                  it's an ok movie<br>
+                  not great<br>
+                  not bad<br>
+                  just ok
+                </p>
+              </div>
+            </div>
+          </div>
+          <!--<hr>-->
+        </div>
+      </form>
+      <footer>
+        <hr>
+        <p>
+          All trademarks and copyrights on this page are owned by their respective parties.
+          Images uploaded are the responsibility of the Poster.
+          Comments are owned by the Poster.
+        </p>
+        <div class="footer-links">
+          <a href="">About</a> &bull;
+          <a href="">Feedback</a> &bull;
+          <a href="">Legal</a> &bull;
+          <a href="">Contact</a>
+        </div>
+      </footer>
+    </div>
+    <div class="media-pane">
+      <div class="media-header">
+        <a class="media-exit" href="javascript:void(0)">&#10005;</a>
+        <div class="media-info">
+          <h3>This is a subject</h3>
+          <p>And this is the content of the post/thread OP this live stream was started in</p>
+        </div>
+      </div>
+      <div class="media-content">
+        <video muted loop playsinline autoplay>
+          <source src="<: $static_res_base :>v/1667376669325307.webm">
+        </video>
+      </div>
+      <div class="media-foot">
+        <div class="media-controls">
+          <a class="media-prev" href="javascript:void(0)"></a>
+          <a class="media-volume" href="javascript:void(0)"></a>
+          <a class="media-play" href="javascript:void(0)"><img class="pause-svg" src="<: $static_res_base :>i/pause.svg"></a>
+          <a class="media-seek" href="javascript:void(0)"></a>
+          <a class="media-next" href="javascript:void(0)"></a>
+        </div>
+      </div>
+    </div>
+    <a class="pane-toggle" href="javascript:void(0)">&#10154;</a>
+  </body>
+</html>
