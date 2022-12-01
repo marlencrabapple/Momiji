@@ -23,7 +23,9 @@ our $tx = Text::Xslate->new(
 );
 
 sub new {
-  bless {}, shift
+  bless {
+    config => YAML::Tiny->read($ENV{MOMIJI_CONFIG_FILE} || 'config.yml')
+  }, shift
 }
 
 sub to_app {
@@ -61,13 +63,20 @@ sub res_stream {
   ...
 }
 
+sub render {
+  my ($self, $name, $data) = @_;
+
+  $tx->render('', {
+    static_uri => '/s/'
+  })
+}
+
 sub handler {
   my ($self, $env) = @_;
 
   my $req = Plack::Request->new($env);
 
-  res($tx->render('board-index.tx', { 
-    hi => Dumper($req),
+  res($tx->render('board-index.tx', {
     static_res_base => '/s/'
   }), 200)
 }

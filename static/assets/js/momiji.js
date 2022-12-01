@@ -10,11 +10,6 @@ function randomString (len) {
 
 let delkey = document.cookie.delkey || randomString(32);
 
-/*
-* Media Viewer
-* 16:9 screens have enough room for a portrait-mode live feed on the left or right side of the page
-* Think dev tools open
-*/
 
 /*
 * Options Field
@@ -64,7 +59,7 @@ nameFields.forEach(v => {
     else {
       sizedName.innerHTML = v.value;
       shadowName.style.textIndent = sizedName.clientWidth + 1 + "px";
-      shadowName2.placeholder = "⇧+⇥";
+      shadowName2.placeholder = "⇧⏎";
 
       if(v.value.indexOf("##") === -1) {
         if(v.value.lastIndexOf("#") === v.value.length - 1) {
@@ -86,35 +81,56 @@ nameFields.forEach(v => {
 });
 
 /*
-* Media Pane
+* Media Viewer
+* 16:9 screens have enough room for a portrait-mode live feed on the left or right side of the page
+* Think dev tools open
 */
 
-function togglePlayback(media) {
-  if(media.paused) {
-    media.play()
-  }
-  else {
-    media.pause()
-  }
+function togglePlayback(media, e) {
+  media.paused ? media.play() : media.pause()
+}
+
+function toggleResizeText(resizePane) {
+  let toggleText = resizePane.dataset.toggleText;
+  resizePane.dataset.toggleText = resizePane.innerHTML;
+  resizePane.innerHTML = toggleText
 }
 
 let sitePane = document.querySelector('div.site-pane');
 let mediaPane = document.querySelector('div.media-pane');
 let media = mediaPane.querySelector('video');
-let playButton = mediaPane.querySelector('a.media-play');
-let exitButton = mediaPane.querySelector('a.media-exit');
-let pauseSvg = playButton.innerHTML;
+let resizePane = document.querySelector('a.pane-toggle');
+let openMedia = document.querySelector('a.pane-toggle-fixed');
 
-exitButton.addEventListener('click', e => {
-  media.pause();
-  mediaPane.style.width = "0%"
-  mediaPane.style.display = "none";
-  sitePane.style.marginLeft = "0px";
-  sitePane.style.paddingLeft = "0px";
+resizePane.addEventListener('click', e => {
+  toggleResizeText(resizePane);
+  mediaPane.classList.toggle('max');
+  sitePane.classList.toggle('media-max')
 });
 
-playButton.addEventListener('click', e => togglePlayback(media));
+openMedia.addEventListener('click', e => {
+  sitePane.classList.toggle('media-active');
+  mediaPane.classList.toggle('active')
+});
 
-media.addEventListener('pause', e => playButton.innerHTML = "&#9658;");
-media.addEventListener('play', e => playButton.innerHTML = pauseSvg);
-media.addEventListener('click', e => togglePlayback(media))
+if(media) {
+  let playButton = mediaPane.querySelector('a.media-play');
+  let exitButton = mediaPane.querySelector('a.media-exit');
+  let pauseSvg = playButton.innerHTML;
+
+  exitButton.addEventListener('click', e => {
+    media.pause();
+    
+    if(mediaPane.classList.contains('max'))
+      toggleResizeText(resizePane);
+
+    sitePane.classList.remove('media-active', 'media-max');
+    mediaPane.classList.remove('active', 'max')
+  });
+
+  playButton.addEventListener('click', e => togglePlayback(media, e));
+
+  media.addEventListener('pause', e => playButton.innerHTML = "&#9658;");
+  media.addEventListener('play', e => playButton.innerHTML = pauseSvg);
+  media.addEventListener('click', e => togglePlayback(media, e))
+}

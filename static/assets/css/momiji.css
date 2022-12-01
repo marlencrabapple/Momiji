@@ -1,5 +1,14 @@
+* {
+  box-sizing: border-box
+}
+
 body {
-  font-size: 10pt
+  display: flex
+}
+
+body > div.site-pane {
+  flex: auto;
+  transition: margin-left .05s linear;
 }
 
 a, a:visited {
@@ -158,7 +167,8 @@ form.post-form .option-btn {
   line-height: 1.75em;
   height: 1.75em;
   transition: all .05s linear;
-  vertical-align: top
+  vertical-align: top;
+  box-sizing: content-box
 }
 
 form.post-form .option-btn a {
@@ -235,8 +245,7 @@ form.post-form span.input-control a {
   z-index: -1;
   background-color: transparent;
   text-align: right;
-  visibility: hidden;
-  font-weight: bolder
+  visibility: hidden
 }
 
 .post-form .shadow-group input[name=namesugs] {
@@ -295,7 +304,7 @@ div.thread div.post.reply:before {
 }
 
 div.post div.post-control {
-  height: 1.25em
+  height: 1.5em
 }
 
 div.post div.post-control > * {
@@ -466,15 +475,26 @@ footer hr {
 }
 
 div.media-pane {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 25%;
   background-color: #000;
   color: #fff;
   box-sizing: border-box;
-  box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.25)
+  box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.25);
+  flex: auto;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  transition: width .05s linear;
+  width: 0px;
+  height: 0px
+}
+
+div.media-pane > * {
+  visibility: hidden
+}
+
+div.media-pane.active > * {
+  visibility: visible
 }
 
 div.media-pane > div.media-header, div.media-pane > div.media-foot {
@@ -483,7 +503,8 @@ div.media-pane > div.media-header, div.media-pane > div.media-foot {
   padding: 10px 12px 0;
   box-sizing: border-box;
   opacity: 0.5;
-  transition: all .05s linear
+  transition: opacity .05s linear;
+  z-index: 2
 }
 
 div.media-pane > div.media-header {
@@ -492,17 +513,29 @@ div.media-pane > div.media-header {
   background-image: linear-gradient(#000, transparent)
 }
 
-div.media-pane:hover * {
+div.media-pane:hover > * {
   opacity: 1!important;
-  transition: all .05s linear
+  transition: opacity .05s linear;
 }
 
-div.media-pane > div.media-header > a.media-exit {
-  content: '✕';
+div.media-pane > div.media-header > a {
   color: transparent;
   text-shadow: 1px 1px 1px #fff;
   font-size: x-large;
   font-weight: lighter;
+  margin: 0 4px;
+}
+
+div.media-pane > div.media-header > a:first-of-type {
+  margin-left: 0
+}
+
+div.media-pane > div.media-header > a:last-of-type {
+  margin-right: 0
+}
+
+div.media-pane > div.media-head > a.pane-toggle {
+  font-weight: bolder
 }
 
 div.media-pane > div {
@@ -518,6 +551,7 @@ div.media-pane > div.media-content {
 
 div.media-pane > div.media-content > video {
   width: 100%;
+  max-height: 100%;
   display: inline-block
 }
 
@@ -530,12 +564,12 @@ div.media-pane > div.media-header > div.media-info {
   height: 0;
   overflow: hidden;
   text-align: left;
-  transition: all .05s linear
+  transition: height .05s linear
 }
 
 div.media-pane:hover > div.media-header > div.media-info {
   height: auto;
-  transition: all .05s linear
+  transition: height .05s linear
 }
 
 div.media-pane > div.media-header > div.media-info > h3 {
@@ -544,34 +578,94 @@ div.media-pane > div.media-header > div.media-info > h3 {
 }
 
 div.media-pane > div.media-foot > div.media-controls {
-  width: 75%;
   margin: 0 auto 20px;
+  height: 36px;
   text-align: center;
-  font-size: 36px
+  font-size: 36px;
+  padding: 0 10px;
+  clear: both;
+  vertical-align: bottom;
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box
 }
 
 div.media-pane > div.media-foot > div.media-controls a {
   color: #fff!important;
   letter-spacing: -4px;
-  vertical-align: middle
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  box-sizing: border-box;
+  vertical-align: super
 }
 
 div.media-pane > div.media-foot > div.media-controls a img {
   height: 26px;
-  width: auto
+  width: auto;
+  vertical-align: baseline
 }
 
-div.site-pane {
-  margin-left: 25%;
-  padding-left: 8px
+a.pane-toggle, a.pane-toggle-fixed {
+  font-size: 36px;
+  content: '&#10154;'
 }
 
-a.pane-toggle {
+a.pane-toggle-fixed {
   position: fixed;
   bottom: 0;
   left: 0;
-  font-size: xx-large;
   margin-left: 12px;
-  margin-bottom: 4px;
-  content: '&#10154;'
+  margin-bottom: 4px
 }
+
+@media (min-width: 30em) {
+  body {
+    font-size: 10pt
+  }
+
+  div.site-pane.media-active {
+    margin-left: 36em;
+    padding-left: 2px
+  }
+
+  div.site-pane.media-active.media-max {
+    width: 67.5em
+  }
+
+  div.media-pane {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%
+  }
+
+  div.media-pane.active {
+    width: 36em
+  }
+
+  div.media-pane.active.max {
+    width: 67.5em
+  }
+}
+
+@media (min-width: 48em) {
+  div.media-pane.max {
+    width: 81em!important
+  }
+
+  div.site-pane.media-max {
+    margin-left: 81em!important
+  }
+}
+
+@media (min-width: 120em) {
+  div.media-pane.max {
+    width: 96em!important
+  }
+
+  div.site-pane.media-max {
+    margin-left: 96em!important
+  }
+}
+

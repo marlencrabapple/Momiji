@@ -1,0 +1,34 @@
+CREATE TABLE "<: $board :>_comment" (
+  "postno" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+  "parent" INTEGER,
+  "timestamp" INTEGER NOT NULL,
+  "lasthit" INTEGER,
+  "ip" INTEGER NOT NULL,
+  "id" INTEGER,
+  "date" TEXT NOT NULL,
+  "name" TEXT,
+  "link" TEXT,
+  "subject" TEXT,
+  "password" TEXT NOT NULL,
+  "comment" TEXT,
+  "comment_formatted" TEXT,
+  "file" INTEGER,
+  "sticky" TINYINT,
+  "permasage" TINYINT,
+  "locked" TINYINT,
+  "tnmask" TINYINT,
+  "location" TINYINT NOT NULL,
+  "flag" TINYINT,
+  "staffpost" TINYINT,
+  "pass" TINYINT,
+  "options" TEXT
+);
+
+CREATE TABLE "<: $board :>_file" (
+  "fileid" INTEGER PRIMARY KEY NOT NULL
+  "path" TEXT NOT NULL,
+  "filename" TEXT NOT NULL,
+  "metadata" TEXT, --JSON string with metadata type/source as keys and data as
+                   --value (e.g one {ffprobe: ..., exiftool: ..., mediainfo: ...})
+  "status" TINYINT --Processing, etc.
+);
