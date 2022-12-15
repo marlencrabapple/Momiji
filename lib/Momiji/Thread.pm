@@ -6,7 +6,16 @@ use autodie;
 sub new {
   my ($class, %args) = @_;
 
+  if($args{thread_no}) {
+
+  }
+
   bless {}, $class
+}
+
+sub get_thread {
+  my ($dbh, $board, $thread_no) = @_;
+
 }
 
 sub lock {

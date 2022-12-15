@@ -15,6 +15,10 @@ a:hover {
   color: #d00
 }
 
+nav.main {
+  color: #89a!important
+}
+
 h1, h2, h3 {
   color: #af0a0f
 }
@@ -25,10 +29,6 @@ hr {
 
 header h1#boardName {
   color: #af0a0f
-}
-
-.post-form input[type=text], .post-form input[type=password], .post-form input[type=file], .post-form textarea, .post-form label, .post-form select {
-  padding: 2px 4px 3px
 }
 
 .post-form input[type=text], .post-form input[type=password], .post-form input[type=file], .post-form textarea {
@@ -58,7 +58,7 @@ div.post div.post-control span.subject {
   color: #0f0c5d
 }
 
-div.post div.post-control span.post-no a {
+div.post div.post-control span.post-no a:not(:hover) {
   color: #000
 }
 
@@ -81,6 +81,14 @@ form.post-form .option-btn:hover a {
 
 form.post-form .option-btn a:hover {
   color: #f11!important
+}
+
+form.post-form div.input-row span.password-control > span {
+  color: rgb(136, 153, 170, 0.5) /* #89a w/ opacity */
+}
+
+form.post-form div.input-row span.password-control:hover > span {
+  color: #89a
 }
 
 .post.reply .post-inner {

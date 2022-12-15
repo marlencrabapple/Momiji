@@ -25,6 +25,7 @@ requires 'Starlet', '0.31';
 requires 'Gazelle', '0.49';
 requires 'HTTP::Parser::XS', '0.17';
 requires 'Server::Starter', '0.35';
+requires 'Parallel::Prefork', '0.18';
 
 requires 'Image::ExifTool', '12.42';
 requires 'GD', '2.76'

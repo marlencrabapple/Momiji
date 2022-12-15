@@ -2,14 +2,78 @@
 * Misc Utility Functions
 */
 
-function randomString (len) {
+function setCookie(key, value) {
+  document.cookie = `${key.replaceAll(/[^a-z0-9_\-]+/ig, '')}=${encodeURIComponent(value)};`
+}
+
+function getCookie(re) {
+  let matched = document.cookie.match(re);
+  return matched && matched[1] ? decodeURIComponent(matched[1]) : undefined
+}
+
+function getCookieRegExp(key, flags) {
+  return new RegExp(`${key.replaceAll(/[^a-z0-9_\-]+/ig, '')}=([^;]+)`, flags)
+}
+
+function randomString(len) {
   var arr = new Int16Array((len || 40) / 4);
   window.crypto.getRandomValues(arr);
   return Array.from(arr, dec => dec.toString(16).padStart(2, "0")).join('-')
 }
 
-let delkey = document.cookie.delkey || randomString(32);
+let delkey = document.cookie.match(/delkey=([^;]+)/);
+delkey = delkey ? delkey[1] : randomString(32);
+document.querySelectorAll('input[name=delpass]').forEach(elem => elem.value = delkey);
 
+/*
+* Built-in Stylesheet Stuff
+*/
+
+const stylesheetCookieKey = 'momijistyle'
+const stylesheetCookieRegExp = getCookieRegExp(stylesheetCookieKey, 'i');
+const styleSelect = document.querySelector('select[name=styleselect]');
+
+function getStylesheet() {
+  return getCookie(stylesheetCookieRegExp) || defaultStyle
+}
+
+function setStylesheet(title, e) {
+  // Not sure if this is any worse than setting the name attr and using
+  // styleSelect.namedItem(title).setAttr... performance or best-practices wise...
+  styleSelect.querySelector(`option[value="${title}"]`).setAttribute('selected', true);
+  setCookie(stylesheetCookieKey, title);
+  
+  document.querySelectorAll('link[title]').forEach(v => { 
+    v.setAttribute('rel', 'alternate stylesheet');
+    v.setAttribute('disabled', true);
+    v.removeAttribute('enabled')
+  });
+
+  let newStylesheetLink = document.querySelector(`link[title="${title}"]`);
+  newStylesheetLink.setAttribute('rel', 'stylesheet');
+  newStylesheetLink.setAttribute('enabled', true);
+  newStylesheetLink.removeAttribute('disabled')
+}
+
+window.addEventListener('load', e => setStylesheet(getStylesheet(), styleSelect, e));
+styleSelect.addEventListener('change', e => setStylesheet(e.currentTarget.selectedOptions[0].innerHTML, e.currentTarget, e));
+
+/*
+* Password Field
+*/
+
+let passwordControl = document.querySelectorAll("form.post-form span.password-control");
+
+passwordControl.forEach(v => {
+  let passMask = v.querySelector('input[name=delmask]');
+  let passInput = v.querySelector('input[name=delpass]');
+
+  passMask.addEventListener('change', e => {
+    passMask.checked
+      ? passInput.setAttribute('type', 'text')
+      : passInput.setAttribute('type', 'password')
+  })
+});
 
 /*
 * Options Field
@@ -99,8 +163,27 @@ function toggleResizeText(resizePane) {
 let sitePane = document.querySelector('div.site-pane');
 let mediaPane = document.querySelector('div.media-pane');
 let media = mediaPane.querySelector('video');
-let resizePane = document.querySelector('a.pane-toggle');
+let mediaMeta = mediaPane.querySelectorAll('div.media-header, div.media-foot');
+let resizePane = mediaMeta[0].querySelector('a.pane-toggle');
 let openMedia = document.querySelector('a.pane-toggle-fixed');
+
+let mediaMetaTimeout = false;
+
+mediaPane.addEventListener('mouseenter', e => {
+  if(mediaMetaTimeout)
+    clearTimeout(mediaMetaTimeout);
+
+  mediaMeta.forEach(v => v.classList.remove('faded'))
+});
+
+mediaPane.addEventListener('mouseleave', e => {
+  if(mediaMetaTimeout)
+    clearTimeout(mediaMetaTimeout);
+
+  mediaMetaTimeout = setTimeout(c => {
+    c.forEach(v => v.classList.add('faded'))
+  }, 2000, mediaMeta)
+});
 
 resizePane.addEventListener('click', e => {
   toggleResizeText(resizePane);
@@ -134,3 +217,77 @@ if(media) {
   media.addEventListener('play', e => playButton.innerHTML = pauseSvg);
   media.addEventListener('click', e => togglePlayback(media, e))
 }
+
+/*
+* Post Controls
+*/
+
+let posts = document.querySelectorAll('div.post');
+let commentInputs = document.querySelectorAll('form textarea[name=comment]');
+
+posts.forEach(post => {
+  /*
+  * Post quoting/linking stuff
+  */
+
+  let postLink = post.querySelector('span.post-no a:first-child');
+  let postQuote = post.querySelector('span.post-no a:last-child');
+
+  //postLink.addEventListener('click', e => navigator.clipboard.writeText(postLink.href));
+
+  postQuote.addEventListener('click', e => {
+    e.preventDefault();
+    commentInputs.forEach(textarea => textarea.innerHTML += `&gt;&gt;${postQuote.innerHTML} `)
+  });
+
+  /*
+  * Quoted post inline/hover
+  */
+
+  let quoted = post.querySelectorAll('a.quote-link');
+
+  quoted.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault()
+    })
+
+    link.addEventListener('mouseenter', e => {
+      
+    })
+
+    link.addEventListener('mouseleave', e => {
+      
+    })
+  })
+
+  /*
+  * Post menu stuff
+  */
+
+  let menuToggle = post.querySelector('span.menu-toggle');
+  let menu = post.querySelector('div.post-menu');
+
+  menuToggle.addEventListener('click', e => {
+    e.preventDefault()
+  });
+
+  /*
+  * Image/file controls
+  */
+
+  let fileThumb = post.querySelector('img.file-thumb');
+
+  if(fileThumb) {
+    fileThumb.addEventListener('click', e => {
+      e.preventDefault()
+    });
+
+    fileThumb.addEventListener('mouseenter', e => {
+
+    });
+
+    fileThumb.addEventListener('mouseleave', e => {
+
+    })
+  }
+})

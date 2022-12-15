@@ -3,17 +3,19 @@ package Momiji;
 use v5.36;
 use autodie;
 
-use Plack;
-use Plack::Request;
-use Data::Dumper;
-use Path::Tiny;
-use YAML::Tiny;
-use JSON::MaybeXS;
-use Text::Xslate;
 use GD;
+use Plack;
+use YAML::Tiny;
+use Data::Dumper;
+use Text::Xslate;
+use Plack::Request;
+use JSON::MaybeXS;
+use Path::Tiny;
+use Encode;
+use DBI;
 
 our $tx = Text::Xslate->new(
-  #cache => $ENV{PLACK_ENV} eq 'development' ? 0 : 1,
+  cache => $ENV{PLACK_ENV} eq 'development' ? 0 : 1,
   path => ['view'],
   pre_process_handler => sub {
     my $text = shift;
@@ -21,6 +23,8 @@ our $tx = Text::Xslate->new(
     $text
   }
 );
+
+our $dbh = DBI->connect("dbi:SQLite:dbname=momiji.sqlite3", "", "");
 
 sub new {
   bless {
@@ -70,15 +74,36 @@ sub render {
     static_uri => '/s/'
   })
 }
-
+ 
 sub handler {
   my ($self, $env) = @_;
 
   my $req = Plack::Request->new($env);
 
   res($tx->render('board-index.tx', {
+    default_style => 'Yotsuba B',
     static_res_base => '/s/'
   }), 200)
+}
+
+sub board_index_route {
+  my ($self, $req) = @_;
+}
+
+sub view_thread_route {
+  my ($self, $req) = @_;
+}
+
+sub new_post_route {
+  my ($self, $req) = @_;
+}
+
+sub geoflag_route {
+  my ($self, $req) = @_;
+}
+
+sub captcha_route {
+  my ($self, $req) = @_;
 }
 
 1

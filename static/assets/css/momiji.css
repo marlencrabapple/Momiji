@@ -8,7 +8,7 @@ body {
 
 body > div.site-pane {
   flex: auto;
-  transition: margin-left .05s linear;
+  transition: margin-left .1s linear;
 }
 
 a, a:visited {
@@ -23,9 +23,13 @@ a, a:visited {
   white-space: nowrap
 }
 
+.faded {
+  transition: opacity .1s linear!important;
+  opacity: 0!important;
+}
+
 nav.main {
-  font-size: small;
-  color: #89a!important
+  font-size: small
 }
 
 nav.main > div {
@@ -78,7 +82,7 @@ header img {
 }
 
 header h1 {
-  font-family: Tahoma,sans-serif;
+  font-family: Tahoma, sans-serif;
   font-size: 28px;
   font-weight: 700;
   letter-spacing: -2px;
@@ -108,6 +112,49 @@ header h1 {
   box-sizing: border-box
 }
 
+form.post-form div.input-row span.password-control {
+  background-color: transparent;
+  box-sizing: border-box;
+  width: 110px;
+  display: inline-block;
+  clear: both;
+  position: absolute
+}
+
+form.post-form div.input-row span.password-control > span {
+  background-color: transparent;
+  background-image: linear-gradient(90deg, transparent -100%, #fff 100%);
+  float: right;
+  position: relative;
+  margin: 3px 2px 0 0;
+  white-space: nowrap;
+  padding-left: 4px;
+  word-spacing: -1px;
+}
+
+form.post-form div.input-row span.password-control > span > * {
+  font-size: x-small;
+  text-transform: uppercase;
+  font-weight: bold;
+  display: inline-block!important;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  opacity: 0.5!important
+}
+
+form.post-form div.input-row span.password-control:hover > span {
+  opacity: 1!important
+}
+
+form.post-form div.input-row span.password-control:hover > span > * {
+  opacity: 1!important
+}
+
+form.post-form div.input-row span.password-control > span > *:hover {
+  text-shadow: 0 0 1px #fff
+}
+
 form.post-form div.input-row label {
   display: table-cell;
   padding: 0 5px
@@ -132,12 +179,21 @@ form.post-form input[type=file] {
   margin: 0
 }
 
-form.post-form input[name=delpass] {
-  width: 20%;
+form.post-form input[name=delpass], form.post-form input[name=deldummy] {
+  width: 110px;
   font-size: 11pt;
   padding: 2px 4px;
   margin-right: 2px
 }
+
+form.post-form input[name=delpass] {
+  position: absolute
+}
+
+/* form.post-form input[name=deldummy] {
+  z-index: -1;
+  position: relative
+} */
 
 form.post-form small.input-help span.bracket {
   margin-right: 2px;
@@ -168,7 +224,9 @@ form.post-form .option-btn {
   height: 1.75em;
   transition: all .05s linear;
   vertical-align: top;
-  box-sizing: content-box
+  box-sizing: content-box;
+  z-index: 2;
+  position: relative
 }
 
 form.post-form .option-btn a {
@@ -310,6 +368,10 @@ div.post div.post-control {
 div.post div.post-control > * {
   display: inline-block;
   vertical-align: unset
+}
+
+div.post div.post-control span.name {
+  color: #117743;
 }
 
 .thread div.post div.post-control input[type=checkbox] {
@@ -484,7 +546,7 @@ div.media-pane {
   margin: 0;
   border: none;
   outline: none;
-  transition: width .05s linear;
+  transition: width .1s linear;
   width: 0px;
   height: 0px
 }
@@ -515,26 +577,26 @@ div.media-pane > div.media-header {
 
 div.media-pane:hover > * {
   opacity: 1!important;
-  transition: opacity .05s linear;
+  transition: opacity .05s linear
 }
 
-div.media-pane > div.media-header > a {
+div.media-pane > div.media-header > div.media-control > a {
   color: transparent;
   text-shadow: 1px 1px 1px #fff;
   font-size: x-large;
   font-weight: lighter;
-  margin: 0 4px;
+  margin: 0 2px
 }
 
-div.media-pane > div.media-header > a:first-of-type {
+div.media-pane > div.media-header > div.media-control > a:first-of-type {
   margin-left: 0
 }
 
-div.media-pane > div.media-header > a:last-of-type {
+div.media-pane > div.media-header > div.media-control > a:last-of-type {
   margin-right: 0
 }
 
-div.media-pane > div.media-head > a.pane-toggle {
+div.media-pane > div.media-header > div.media-control > a.pane-toggle {
   font-weight: bolder
 }
 
@@ -577,7 +639,7 @@ div.media-pane > div.media-header > div.media-info > h3 {
   font-weight: bolder
 }
 
-div.media-pane > div.media-foot > div.media-controls {
+div.media-pane > div.media-foot > div.media-control {
   margin: 0 auto 20px;
   height: 36px;
   text-align: center;
@@ -590,7 +652,7 @@ div.media-pane > div.media-foot > div.media-controls {
   box-sizing: border-box
 }
 
-div.media-pane > div.media-foot > div.media-controls a {
+div.media-pane > div.media-foot > div.media-control a {
   color: #fff!important;
   letter-spacing: -4px;
   display: inline-block;
@@ -600,7 +662,7 @@ div.media-pane > div.media-foot > div.media-controls a {
   vertical-align: super
 }
 
-div.media-pane > div.media-foot > div.media-controls a img {
+div.media-pane > div.media-foot > div.media-control a img {
   height: 26px;
   width: auto;
   vertical-align: baseline
@@ -617,6 +679,10 @@ a.pane-toggle-fixed {
   left: 0;
   margin-left: 12px;
   margin-bottom: 4px
+}
+
+.page-bottom-control {
+  text-align: right
 }
 
 @media (min-width: 30em) {
@@ -668,4 +734,3 @@ a.pane-toggle-fixed {
     margin-left: 96em!important
   }
 }
-

@@ -633,18 +633,18 @@ DISTRIBUTIONS
       Exporter 5.57
       ExtUtils::MakeMaker 0
       perl 5.008
-  IO-Socket-SSL-2.077
-    pathname: S/SU/SULLR/IO-Socket-SSL-2.077.tar.gz
+  IO-Socket-SSL-2.078
+    pathname: S/SU/SULLR/IO-Socket-SSL-2.078.tar.gz
     provides:
-      IO::Socket::SSL 2.077
+      IO::Socket::SSL 2.078
       IO::Socket::SSL::Intercept 2.056
-      IO::Socket::SSL::OCSP_Cache 2.077
-      IO::Socket::SSL::OCSP_Resolver 2.077
+      IO::Socket::SSL::OCSP_Cache 2.078
+      IO::Socket::SSL::OCSP_Resolver 2.078
       IO::Socket::SSL::PublicSuffix undef
-      IO::Socket::SSL::SSL_Context 2.077
-      IO::Socket::SSL::SSL_HANDLE 2.077
-      IO::Socket::SSL::Session_Cache 2.077
-      IO::Socket::SSL::Trace 2.077
+      IO::Socket::SSL::SSL_Context 2.078
+      IO::Socket::SSL::SSL_HANDLE 2.078
+      IO::Socket::SSL::Session_Cache 2.078
+      IO::Socket::SSL::Trace 2.078
       IO::Socket::SSL::Utils 2.015
     requirements:
       ExtUtils::MakeMaker 0
@@ -890,44 +890,44 @@ DISTRIBUTIONS
       IPC::Cmd 0
       XSLoader 0.22
       base 0
-  Metrics-Any-0.08
-    pathname: P/PE/PEVANS/Metrics-Any-0.08.tar.gz
+  Metrics-Any-0.09
+    pathname: P/PE/PEVANS/Metrics-Any-0.09.tar.gz
     provides:
-      Metrics::Any 0.08
-      Metrics::Any::Adapter 0.08
-      Metrics::Any::Adapter::File 0.08
-      Metrics::Any::Adapter::Null 0.08
-      Metrics::Any::Adapter::Stderr 0.08
-      Metrics::Any::Adapter::Tee 0.08
-      Metrics::Any::Adapter::Test 0.08
-      Metrics::Any::AdapterBase::Stored 0.08
-      Metrics::Any::Collector 0.08
+      Metrics::Any 0.09
+      Metrics::Any::Adapter 0.09
+      Metrics::Any::Adapter::File 0.09
+      Metrics::Any::Adapter::Null 0.09
+      Metrics::Any::Adapter::Stderr 0.09
+      Metrics::Any::Adapter::Tee 0.09
+      Metrics::Any::Adapter::Test 0.09
+      Metrics::Any::AdapterBase::Stored 0.09
+      Metrics::Any::Collector 0.09
     requirements:
       List::Util 1.29
       Module::Build 0.4004
       perl 5.014
-  Module-Build-0.4231
-    pathname: L/LE/LEONT/Module-Build-0.4231.tar.gz
+  Module-Build-0.4232
+    pathname: L/LE/LEONT/Module-Build-0.4232.tar.gz
     provides:
-      Module::Build 0.4231
-      Module::Build::Base 0.4231
-      Module::Build::Compat 0.4231
-      Module::Build::Config 0.4231
-      Module::Build::Cookbook 0.4231
-      Module::Build::Dumper 0.4231
-      Module::Build::Notes 0.4231
-      Module::Build::PPMMaker 0.4231
-      Module::Build::Platform::Default 0.4231
-      Module::Build::Platform::MacOS 0.4231
-      Module::Build::Platform::Unix 0.4231
-      Module::Build::Platform::VMS 0.4231
-      Module::Build::Platform::VOS 0.4231
-      Module::Build::Platform::Windows 0.4231
-      Module::Build::Platform::aix 0.4231
-      Module::Build::Platform::cygwin 0.4231
-      Module::Build::Platform::darwin 0.4231
-      Module::Build::Platform::os2 0.4231
-      Module::Build::PodParser 0.4231
+      Module::Build 0.4232
+      Module::Build::Base 0.4232
+      Module::Build::Compat 0.4232
+      Module::Build::Config 0.4232
+      Module::Build::Cookbook 0.4232
+      Module::Build::Dumper 0.4232
+      Module::Build::Notes 0.4232
+      Module::Build::PPMMaker 0.4232
+      Module::Build::Platform::Default 0.4232
+      Module::Build::Platform::MacOS 0.4232
+      Module::Build::Platform::Unix 0.4232
+      Module::Build::Platform::VMS 0.4232
+      Module::Build::Platform::VOS 0.4232
+      Module::Build::Platform::Windows 0.4232
+      Module::Build::Platform::aix 0.4232
+      Module::Build::Platform::cygwin 0.4232
+      Module::Build::Platform::darwin 0.4232
+      Module::Build::Platform::os2 0.4232
+      Module::Build::PodParser 0.4232
     requirements:
       CPAN::Meta 2.142060
       Cwd 0
@@ -946,7 +946,6 @@ DISTRIBUTIONS
       Getopt::Long 0
       Module::Metadata 1.000002
       Perl::OSType 1
-      Pod::Man 2.17
       TAP::Harness 3.29
       Text::Abbrev 0
       Text::ParseWords 0
@@ -1109,11 +1108,11 @@ DISTRIBUTIONS
       Test::Requires 0
       Test::SharedFork 0
       perl 5.008001
-  Path-Tiny-0.142
-    pathname: D/DA/DAGOLDEN/Path-Tiny-0.142.tar.gz
+  Path-Tiny-0.144
+    pathname: D/DA/DAGOLDEN/Path-Tiny-0.144.tar.gz
     provides:
-      Path::Tiny 0.142
-      Path::Tiny::Error 0.142
+      Path::Tiny 0.144
+      Path::Tiny::Error 0.144
     requirements:
       Carp 0
       Cwd 0

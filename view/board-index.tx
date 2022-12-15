@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="description" content="/asdf/ - Asdf is an image board running Momiji.">
     <link rel="shortcut icon" href="<: $static_res_base :>i/favicon.ico">
-    <link rel="stylesheet" href="<: $static_res_base :>css/momiji.css">
-    <link rel="stylesheet" href="<: $static_res_base :>css/yotsublue.css">
-    <script type="text/javascript" src="<: $static_res_base :>js/momiji.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="<: $static_res_base :>css/momiji.css">
+    <link rel="stylesheet" type="text/css" href="<: $static_res_base :>css/yotsublue.css" title="Yotsuba B">
+    <link rel="alternate stylesheet" type="text/css" href="<: $static_res_base :>css/yotsuba.css" title="Yotsuba">
     <script>
-      console.log('hi')
+      const defaultStyle = "<: $default_style :>";
     </script>
+    <script type="text/javascript" src="<: $static_res_base :>js/momiji.js" defer></script>
   </head>
   <body>
     <div class="site-pane media-active">
@@ -72,9 +73,8 @@
             <option value="sage">nsfw</option>
             <option value="sage">meta</option>
             <option value="sage">off-topic</option>
-            <option>--</option>
-            <optgroup>
-              <option>Geolocation</option>
+            <optgroup label="Flag">
+              <option>Location (IP)</option>
               <option>Kekistan</option>
               <option>Anarchist</option>
             </optgroup>
@@ -102,14 +102,15 @@
         </div>
         <div class="input-row">
           <label for="delpass">Password</label>
-          <input type="password" name="delpass" value="hihihihihi">
-          <small class="input-help">
-            <span class="bracket">
-              <a href="">&#128065;</a> &bullet;
-              <a href="">&#128203;</a>
+          <span class="password-control">
+            <input type="password" name="delpass" value="hihihihihi">
+            <span>
+              <input type="checkbox" name="delmask">
+              &#128065;
             </span>
-            (for streaming and post/file deletion)
-          </small>
+          </span>
+          <input type="text" name="deldummy">
+          <small class="input-help">(for streaming and post/file deletion)</small>
         </div>
       </form>
       <ul class="board-info">
@@ -209,11 +210,21 @@
               </div>
             </div>
           </div>
-          <hr>
         </div>
+        <hr>
+        <div class="page-bottom-control">
+          <label>Style: </label>
+          <select name="styleselect">
+            <option value="Yotsuba">Yotsuba</option>
+            <option value="Yotsuba B">Yotsuba B</option>
+            <option value="Tomorrow">Tomorrow</option>
+            <option value="Futaba">Futaba</option>
+            <option value="Burichan">Burichan</option>
+          </select>
+        </div>
+        <hr>
       </form>
       <footer>
-        <hr>
         <p>
           All trademarks and copyrights on this page are owned by their respective parties.
           Images uploaded are the responsibility of the Poster.
@@ -230,8 +241,10 @@
     <a class="pane-toggle-fixed" href="javascript:void(0)" data-toggle-text="&#8676;">&#8677;</a>
     <div class="media-pane active">
       <div class="media-header">
-        <a class="pane-toggle" href="javascript:void(0)" data-toggle-text="&#8676;">&#8677;</a>
-        <a class="media-exit" href="javascript:void(0)">&#10005;</a>
+        <div class="media-control">
+          <a class="pane-toggle" href="javascript:void(0)" data-toggle-text="&#8676;">&#8677;</a>
+          <a class="media-exit" href="javascript:void(0)">&#10005;</a>
+        </div>
         <div class="media-info">
           <h3>This is a subject</h3>
           <p>And this is the content of the post/thread OP this live stream was started in</p>
@@ -243,10 +256,11 @@
         </video>
       </div>
       <div class="media-foot">
-        <div class="media-controls">
+        <div class="media-control">
           <a class="media-prev" href="javascript:void(0)"></a>
           <a class="media-volume" href="javascript:void(0)"></a>
-          <a class="media-play" href="javascript:void(0)"><img class="pause-svg" src="<: $static_res_base :>i/pause.svg"></a>
+          <a class="media-play" href="javascript:void(0)">
+            <img class="pause-svg" src="<: $static_res_base :>i/pause.svg"></a>
           <a class="media-seek" href="javascript:void(0)"></a>
           <a class="media-next" href="javascript:void(0)"></a>
         </div>
