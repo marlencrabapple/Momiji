@@ -1,3 +1,7 @@
+#
+# TO-DO
+#
+
 CREATE TABLE "<: $board :>_comment" (
   "postno" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
   "parent" INTEGER,
@@ -12,7 +16,7 @@ CREATE TABLE "<: $board :>_comment" (
   "password" TEXT NOT NULL,
   "comment" TEXT,
   "comment_formatted" TEXT,
-  "file" INTEGER,
+# "files" TEXT,
   "sticky" TINYINT,
   "permasage" TINYINT,
   "locked" TINYINT,
@@ -25,7 +29,8 @@ CREATE TABLE "<: $board :>_comment" (
 );
 
 CREATE TABLE "<: $board :>_file" (
-  "fileid" INTEGER PRIMARY KEY NOT NULL
+  "fileid" INTEGER PRIMARY KEY NOT NULL,
+# "linkedposts" TEXT, 
   "path" TEXT NOT NULL,
   "filename" TEXT NOT NULL,
   "metadata" TEXT, --JSON string with metadata type/source as keys and data as

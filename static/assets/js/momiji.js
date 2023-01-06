@@ -102,6 +102,7 @@ nameFields.forEach(v => {
   let sizedName = v.parentElement.querySelector('div.scratch');
   let shadowName = v.parentElement.querySelector('input[name="namesugs"]');
   let shadowName2 = v.parentElement.querySelector('input[name="namesugs2"]');
+  let namePaddingRightInitial = v.style.paddingRight;
 
   v.addEventListener('focus', e => {
     v.style.backgroundColor = "transparent";
@@ -124,21 +125,20 @@ nameFields.forEach(v => {
       sizedName.innerHTML = v.value;
       shadowName.style.textIndent = sizedName.clientWidth + 1 + "px";
       shadowName2.placeholder = "⇧⏎";
+      v.style.paddingRight = namePaddingRightInitial;
 
       if(v.value.indexOf("##") === -1) {
-        if(v.value.lastIndexOf("#") === v.value.length - 1) {
-          shadowName.placeholder = "#" + tripSugDisplay
-        }
-        else {
-          shadowName.placeholder = "##" + tripSugDisplay
-        }
+        shadowName.placeholder = v.value.lastIndexOf("#") === v.value.length - 1
+          ? "#" + tripSugDisplay
+          : "##" + tripSugDisplay
       }
       else if(v.value.indexOf("##") === v.value.length - 2) {
         shadowName.placeholder = tripSugDisplay
       }
       else {
         shadowName.placeholder = "";
-        shadowName2.placeholder = ""
+        shadowName2.placeholder = "";
+        v.style.paddingRight = "4px"
       }
     }
   })
@@ -146,7 +146,7 @@ nameFields.forEach(v => {
 
 /*
 * Media Viewer
-* 16:9 screens have enough room for a portrait-mode live feed on the left or right side of the page
+* 16:[9,10] screens have enough room for a portrait-mode live feed on the left or right side of the page
 * Think dev tools open
 */
 

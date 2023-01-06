@@ -3,12 +3,12 @@ body {
   font-family: Helvetica, Arial, sans-serif;
   background: #eef2ff
     url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAADICAYAAAAp8ov1AAAAv0lEQVQoU43KVw6DMBAEUN//dknohN5JQkuvzlgCCYRt+Hna2RmyUStK5Gw1TGbU7Cdgp6NYi2JgrBjNEqqJiYSWEs1aRLcxGdOxOGDscckxHUxM58zHclHwsL0LJUL2PtoZV/YDTiDADVH03Ng1wYsQhfjxnRIeQYJixoP9QJgKiDIUPU92TYhzRCFJ8aKER1qi4POmJDsskh8xGfNhcaA44ZJTVpiU1VfCoUa7gmPzo2QtpxZjCZS1E6oOUcQfPqvoG2OZddMAAAAASUVORK5CYII=)
-    top center repeat-x;
+    top center repeat-x
 }
 
 a, a:visited {
   color: #34345c;
-  text-decoration: none;
+  text-decoration: none
 }
 
 a:hover {
@@ -51,7 +51,7 @@ header h1#boardName {
 }
 
 div.post div.post-control span.name {
-  color: #117743;
+  color: #117743
 }
 
 div.post div.post-control span.subject {
@@ -72,11 +72,11 @@ form.post-form .option-btn:hover {
   border-color: #ba9dbf;
   /*background-color: rgba(214, 186, 208, 0.75);*/
   background-color: #d6bad0;
-  box-shadow: 0px 0px 2px 0px #ba9dbf;
+  box-shadow: 0px 0px 2px 0px #ba9dbf
 }
 
 form.post-form .option-btn:hover a {
-  color: #d00!important;
+  color: #d00!important
 }
 
 form.post-form .option-btn a:hover {

@@ -8,7 +8,7 @@ body {
 
 body > div.site-pane {
   flex: auto;
-  transition: margin-left .1s linear;
+  transition: margin-left .1s linear
 }
 
 a, a:visited {
@@ -25,7 +25,7 @@ a, a:visited {
 
 .faded {
   transition: opacity .1s linear!important;
-  opacity: 0!important;
+  opacity: 0!important
 }
 
 nav.main {
@@ -165,7 +165,7 @@ form.post-form div.input-row label {
 }
 
 form.post-form div.ch-row.input-row input {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Courier New', Courier, monospace
 }
 
 form.post-form div.ch-row.input-row img.captcha {
@@ -189,11 +189,6 @@ form.post-form input[name=delpass], form.post-form input[name=deldummy] {
 form.post-form input[name=delpass] {
   position: absolute
 }
-
-/* form.post-form input[name=deldummy] {
-  z-index: -1;
-  position: relative
-} */
 
 form.post-form small.input-help span.bracket {
   margin-right: 2px;
@@ -299,6 +294,10 @@ form.post-form span.input-control a {
   background-color: #fff
 }
 
+.post-form .shadow-group input[name=name]:focus {
+  padding-right: 2.5em
+}
+
 .post-form .shadow-group input[name=namesugs2] {
   z-index: -1;
   background-color: transparent;
@@ -310,7 +309,8 @@ form.post-form span.input-control a {
   z-index: -2;
   background-color: #fff;
   visibility: hidden;
-  word-spacing: -2px
+  word-spacing: -2px;
+  padding-right: 2.5em
 }
 
 .post-form .submit-row * {
@@ -469,8 +469,8 @@ div.post.reply div.file {
   display: inline
 }
 
-div.post div.file a.filename {
-  text-decoration: underline;
+div.post div.file a.filename, .post .quote-link {
+  text-decoration: underline
 }
 
 div.post.reply div.file {
@@ -497,10 +497,6 @@ div.post.op div.file img.file-thumb {
 div.post.reply div.file img.file-thumb {
   max-width: 125px;
   max-height: 125px
-}
-
-.post .quote-link {
-  text-decoration: underline;
 }
 
 .post .post-inner .post-content {

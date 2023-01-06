@@ -71,11 +71,11 @@ form.post-form .option-btn {
 form.post-form .option-btn:hover {
   border-color: #d9bfb7;
   background-color: #f0e0d6;
-  box-shadow: 0px 0px 2px 0px #d9bfb7;
+  box-shadow: 0px 0px 2px 0px #d9bfb7
 }
 
 form.post-form .option-btn:hover a {
-  color: red!important;
+  color: red!important
 }
 
 form.post-form .option-btn a:hover {
