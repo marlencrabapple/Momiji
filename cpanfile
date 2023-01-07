@@ -1,8 +1,18 @@
 recommends 'perl', 'v5.36';
 
+# requires 'Frame',
+#   url => 'https://github.com/marlencrabapple/Frame.git';
+
 requires 'Object::Pad', '0.77';
 requires 'Future::AsyncAwait', '0.62';
 requires 'Syntax::Keyword::Dynamically', '0.11';
+requires 'Feature::Compat::Try', '0.05';
+
+requires 'List::AllUtils', '0.19';
+requires 'List::Util', '1.63';
+requires 'List::UtilsBy', '0.12';
+requires 'List::SomeUtils', '0.59';
+requires 'Hash::Ordered', '0.014';
 
 requires 'Plack', '1.0050';
 requires 'Plack::App::File';
@@ -43,5 +53,8 @@ on develop => sub {
   recommends 'Perl::Tidy', '20221112';
   recommends 'Perl::Critic', '1.144';
   recommends 'Perl::Critic::Community', 'v1.0.3'
-}
+};
 
+on test => sub {
+  requires 'Test::More', '0.96';
+}

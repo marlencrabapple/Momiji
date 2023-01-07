@@ -1,0 +1,89 @@
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  background: #1d1f21 none;
+  color: #c5c8c6
+}
+
+a, a:visited {
+  color: #00e
+}
+
+a:hover {
+  color: red
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #d9bfb7;
+  height: 0
+}
+
+span.bracket,
+div.post div.post-control span.post-no a:not(:hover),
+nav.main a:not(:hover) {
+  color: maroon!important
+}
+
+nav.main {
+  color: #b86!important
+}
+
+div.post.reply > div.post-inner {
+  background-color: #f0e0d6;
+  border: 1px solid #d9bfb7;
+  border-left: none;
+  border-top: none
+}
+
+div.post div.post-control span.subject {
+  color: #cc1105;
+  font-weight: 700
+}
+
+div.post a.quote-link:not(:hover) {
+  color: navy
+}
+
+.thread div.post.reply::before {
+  color: #e0bfb7
+}
+
+form.post-form .input-row label {
+  background-color: #ea8;
+  color: #800;
+  font-weight: 700;
+  border: 1px solid #800;
+  padding: 0 5px;
+  font-size: 10pt
+}
+
+form.post-form input[type=text], .post-form input[type=password], .post-form input[type=file], .post-form textarea {
+  border: 1px solid #aaa
+}
+
+form.post-form .option-btn {
+  border: 1px solid #b86;
+  color: maroon
+}
+
+form.post-form .option-btn:hover {
+  border-color: #d9bfb7;
+  background-color: #f0e0d6;
+  box-shadow: 0px 0px 2px 0px #d9bfb7
+}
+
+form.post-form .option-btn:hover a {
+  color: red!important
+}
+
+form.post-form .option-btn a:hover {
+  color: #f11!important
+}
+
+form.post-form div.input-row span.password-control > span {
+  color: rgba(187, 136, 102, 0.5) /* #89a w/ opacity */
+}
+
+form.post-form div.input-row span.password-control:hover > span {
+  color: #b86
+}

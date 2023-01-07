@@ -747,6 +747,13 @@ DISTRIBUTIONS
       ExtUtils::PkgConfig 1.16
     requirements:
       ExtUtils::MakeMaker 0
+  Feature-Compat-Try-0.05
+    pathname: P/PE/PEVANS/Feature-Compat-Try-0.05.tar.gz
+    provides:
+      Feature::Compat::Try 0.05
+    requirements:
+      Module::Build 0.4004
+      perl 5.014
   File-Listing-6.15
     pathname: P/PL/PLICEASE/File-Listing-6.15.tar.gz
     provides:
@@ -1044,6 +1051,18 @@ DISTRIBUTIONS
     requirements:
       ExtUtils::MakeMaker 0
       perl 5.008001
+  Hash-Ordered-0.014
+    pathname: D/DA/DAGOLDEN/Hash-Ordered-0.014.tar.gz
+    provides:
+      Hash::Ordered 0.014
+    requirements:
+      Carp 0
+      ExtUtils::MakeMaker 6.17
+      constant 0
+      overload 0
+      perl 5.008
+      strict 0
+      warnings 0
   IO-Async-0.802
     pathname: P/PE/PEVANS/IO-Async-0.802.tar.gz
     provides:
@@ -1354,6 +1373,19 @@ DISTRIBUTIONS
       Scalar::Util 0
       perl 5.006002
       strict 0
+  List-AllUtils-0.19
+    pathname: D/DR/DROLSKY/List-AllUtils-0.19.tar.gz
+    provides:
+      List::AllUtils 0.19
+    requirements:
+      Exporter 0
+      ExtUtils::MakeMaker 0
+      List::SomeUtils 0.58
+      List::Util 1.56
+      List::UtilsBy 0.11
+      base 0
+      strict 0
+      warnings 0
   List-MoreUtils-0.430
     pathname: R/RE/REHSACK/List-MoreUtils-0.430.tar.gz
     provides:
@@ -1377,6 +1409,39 @@ DISTRIBUTIONS
       IPC::Cmd 0
       XSLoader 0.22
       base 0
+  List-SomeUtils-0.59
+    pathname: D/DR/DROLSKY/List-SomeUtils-0.59.tar.gz
+    provides:
+      List::SomeUtils 0.59
+      List::SomeUtils::PP 0.59
+    requirements:
+      Carp 0
+      Exporter 0
+      ExtUtils::MakeMaker 0
+      List::SomeUtils::XS 0.54
+      List::Util 0
+      Module::Implementation 0.04
+      Text::ParseWords 0
+      perl 5.006
+      strict 0
+      vars 0
+      warnings 0
+  List-SomeUtils-XS-0.58
+    pathname: D/DR/DROLSKY/List-SomeUtils-XS-0.58.tar.gz
+    provides:
+      List::SomeUtils::XS 0.58
+    requirements:
+      ExtUtils::MakeMaker 0
+      XSLoader 0
+      strict 0
+      warnings 0
+  List-UtilsBy-0.12
+    pathname: P/PE/PEVANS/List-UtilsBy-0.12.tar.gz
+    provides:
+      List::UtilsBy 0.12
+    requirements:
+      Exporter 5.57
+      Module::Build 0.4004
   MRO-Compat-0.15
     pathname: H/HA/HAARG/MRO-Compat-0.15.tar.gz
     provides:
@@ -1506,20 +1571,20 @@ DISTRIBUTIONS
       perl 5.006
       strict 0
       warnings 0
-  Moo-2.005004
-    pathname: H/HA/HAARG/Moo-2.005004.tar.gz
+  Moo-2.005005
+    pathname: H/HA/HAARG/Moo-2.005005.tar.gz
     provides:
       Method::Generate::Accessor undef
       Method::Generate::BuildAll undef
       Method::Generate::Constructor undef
       Method::Generate::DemolishAll undef
-      Moo 2.005004
+      Moo 2.005005
       Moo::HandleMoose undef
       Moo::HandleMoose::FakeConstructor undef
       Moo::HandleMoose::FakeMetaClass undef
       Moo::HandleMoose::_TypeMap undef
       Moo::Object undef
-      Moo::Role 2.005004
+      Moo::Role 2.005005
       Moo::_Utils undef
       Moo::sification undef
       oo undef
@@ -1883,6 +1948,16 @@ DISTRIBUTIONS
       Test::Deep 0.101
       Text::Balanced 2.00
       perl 5.006
+  Scalar-List-Utils-1.63
+    pathname: P/PE/PEVANS/Scalar-List-Utils-1.63.tar.gz
+    provides:
+      List::Util 1.63
+      List::Util::XS 1.63
+      Scalar::Util 1.63
+      Sub::Util 1.63
+    requirements:
+      ExtUtils::MakeMaker 0
+      perl 5.006
   Scope-Guard-0.21
     pathname: C/CH/CHOCOLATE/Scope-Guard-0.21.tar.gz
     provides:
@@ -2045,65 +2120,67 @@ DISTRIBUTIONS
       XS::Parse::Keyword 0.13
       XS::Parse::Keyword::Builder 0.13
       perl 5.014
-  Test-Deep-1.130
-    pathname: R/RJ/RJBS/Test-Deep-1.130.tar.gz
+  Test-Deep-1.202
+    pathname: R/RJ/RJBS/Test-Deep-1.202.tar.gz
     provides:
-      Test::Deep 1.130
-      Test::Deep::All undef
-      Test::Deep::Any undef
-      Test::Deep::Array undef
-      Test::Deep::ArrayEach undef
-      Test::Deep::ArrayElementsOnly undef
-      Test::Deep::ArrayLength undef
-      Test::Deep::ArrayLengthOnly undef
-      Test::Deep::Blessed undef
-      Test::Deep::Boolean undef
-      Test::Deep::Cache undef
-      Test::Deep::Cache::Simple undef
-      Test::Deep::Class undef
-      Test::Deep::Cmp undef
-      Test::Deep::Code undef
-      Test::Deep::Hash undef
-      Test::Deep::HashEach undef
-      Test::Deep::HashElements undef
-      Test::Deep::HashKeys undef
-      Test::Deep::HashKeysOnly undef
-      Test::Deep::Ignore undef
-      Test::Deep::Isa undef
-      Test::Deep::ListMethods undef
-      Test::Deep::MM undef
-      Test::Deep::Methods undef
-      Test::Deep::NoTest undef
-      Test::Deep::None undef
-      Test::Deep::Number undef
-      Test::Deep::Obj undef
-      Test::Deep::Ref undef
-      Test::Deep::RefType undef
-      Test::Deep::Regexp undef
-      Test::Deep::RegexpMatches undef
-      Test::Deep::RegexpOnly undef
-      Test::Deep::RegexpRef undef
-      Test::Deep::RegexpRefOnly undef
-      Test::Deep::RegexpVersion undef
-      Test::Deep::ScalarRef undef
-      Test::Deep::ScalarRefOnly undef
-      Test::Deep::Set undef
-      Test::Deep::Shallow undef
-      Test::Deep::Stack undef
-      Test::Deep::String undef
-      Test::Deep::SubHash undef
-      Test::Deep::SubHashElements undef
-      Test::Deep::SubHashKeys undef
-      Test::Deep::SubHashKeysOnly undef
-      Test::Deep::SuperHash undef
-      Test::Deep::SuperHashElements undef
-      Test::Deep::SuperHashKeys undef
-      Test::Deep::SuperHashKeysOnly undef
+      Test::Deep 1.202
+      Test::Deep::All 1.202
+      Test::Deep::Any 1.202
+      Test::Deep::Array 1.202
+      Test::Deep::ArrayEach 1.202
+      Test::Deep::ArrayElementsOnly 1.202
+      Test::Deep::ArrayLength 1.202
+      Test::Deep::ArrayLengthOnly 1.202
+      Test::Deep::Blessed 1.202
+      Test::Deep::Boolean 1.202
+      Test::Deep::Cache 1.202
+      Test::Deep::Cache::Simple 1.202
+      Test::Deep::Class 1.202
+      Test::Deep::Cmp 1.202
+      Test::Deep::Code 1.202
+      Test::Deep::Hash 1.202
+      Test::Deep::HashEach 1.202
+      Test::Deep::HashElements 1.202
+      Test::Deep::HashKeys 1.202
+      Test::Deep::HashKeysOnly 1.202
+      Test::Deep::Ignore 1.202
+      Test::Deep::Isa 1.202
+      Test::Deep::ListMethods 1.202
+      Test::Deep::MM 1.202
+      Test::Deep::Methods 1.202
+      Test::Deep::NoTest 1.202
+      Test::Deep::None 1.202
+      Test::Deep::Number 1.202
+      Test::Deep::Obj 1.202
+      Test::Deep::Ref 1.202
+      Test::Deep::RefType 1.202
+      Test::Deep::Regexp 1.202
+      Test::Deep::RegexpMatches 1.202
+      Test::Deep::RegexpOnly 1.202
+      Test::Deep::RegexpRef 1.202
+      Test::Deep::RegexpRefOnly 1.202
+      Test::Deep::RegexpVersion 1.202
+      Test::Deep::ScalarRef 1.202
+      Test::Deep::ScalarRefOnly 1.202
+      Test::Deep::Set 1.202
+      Test::Deep::Shallow 1.202
+      Test::Deep::Stack 1.202
+      Test::Deep::String 1.202
+      Test::Deep::SubHash 1.202
+      Test::Deep::SubHashElements 1.202
+      Test::Deep::SubHashKeys 1.202
+      Test::Deep::SubHashKeysOnly 1.202
+      Test::Deep::SuperHash 1.202
+      Test::Deep::SuperHashElements 1.202
+      Test::Deep::SuperHashKeys 1.202
+      Test::Deep::SuperHashKeysOnly 1.202
     requirements:
-      ExtUtils::MakeMaker 0
+      ExtUtils::MakeMaker 6.78
       List::Util 1.09
       Scalar::Util 1.09
       Test::Builder 0
+      Test::More 0.96
+      perl 5.012
   Test-Fatal-0.017
     pathname: R/RJ/RJBS/Test-Fatal-0.017.tar.gz
     provides:

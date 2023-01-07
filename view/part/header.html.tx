@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>/asdf/ - Asdf</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="/asdf/ - Asdf is an image board running Momiji.">
+    <link rel="shortcut icon" href="<: $static_res_base :>i/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="<: $static_res_base :>css/momiji.css">
+    <link rel="stylesheet" type="text/css" href="<: $static_res_base :>css/yotsublue.css" title="Yotsuba B">
+    <link rel="alternate stylesheet" type="text/css" href="<: $static_res_base :>css/yotsuba.css" title="Yotsuba">
+    <script>
+      const defaultStyle = "<: $default_style :>";
+    </script>
+    <script type="text/javascript" src="<: $static_res_base :>js/momiji.js" defer></script>
+  </head>
+  <body>
+    <div class="site-pane media-active">
+      <nav class="main">
+        <div class="boards">
+          <a href="">asdf</a> /
+          <a href="">fdsa</a>
+        </div>
+        <div class="links">
+          <a href="">Home</a>
+        </div>
+      </nav>
+      <header>
+        <img src="" alt="asdf" title="asdf">
+        <h1 id="boardName">/asdf/ - Asdf</h1>
+      </header>
+      <hr>

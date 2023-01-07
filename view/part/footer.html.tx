@@ -1,0 +1,56 @@
+        <div class="page-bottom-control">
+          <label>Style: </label>
+          <select name="styleselect">
+            <option value="Yotsuba">Yotsuba</option>
+            <option value="Yotsuba B">Yotsuba B</option>
+            <option value="Tomorrow">Tomorrow</option>
+            <option value="Futaba">Futaba</option>
+            <option value="Burichan">Burichan</option>
+          </select>
+        </div>
+        <hr>
+      </form>
+      <footer>
+        <p>
+          All trademarks and copyrights on this page are owned by their respective parties.
+          Images uploaded are the responsibility of the Poster.
+          Comments are owned by the Poster.
+        </p>
+        <div class="footer-links">
+          <a href="">About</a> &bull;
+          <a href="">Feedback</a> &bull;
+          <a href="">Legal</a> &bull;
+          <a href="">Contact</a>
+        </div>
+      </footer>
+    </div>
+    <a class="pane-toggle-fixed" href="javascript:void(0)" data-toggle-text="&#8676;">&#8677;</a>
+    <div class="media-pane active">
+      <div class="media-header">
+        <div class="media-control">
+          <a class="pane-toggle" href="javascript:void(0)" data-toggle-text="&#8676;">&#8677;</a>
+          <a class="media-exit" href="javascript:void(0)">&#10005;</a>
+        </div>
+        <div class="media-info">
+          <h3>This is a subject</h3>
+          <p>And this is the content of the post/thread OP this live stream was started in</p>
+        </div>
+      </div>
+      <div class="media-content">
+        <video muted loop playsinline autoplay>
+          <source src="<: $static_res_base :>v/1667376669325307.webm">
+        </video>
+      </div>
+      <div class="media-foot">
+        <div class="media-control">
+          <a class="media-prev" href="javascript:void(0)"></a>
+          <a class="media-volume" href="javascript:void(0)"></a>
+          <a class="media-play" href="javascript:void(0)">
+            <img class="pause-svg" src="<: $static_res_base :>i/pause.svg"></a>
+          <a class="media-seek" href="javascript:void(0)"></a>
+          <a class="media-next" href="javascript:void(0)"></a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

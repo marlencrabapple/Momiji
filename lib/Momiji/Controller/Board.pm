@@ -9,7 +9,13 @@ use autodie;
 
 use Momiji::Thread;
 
+use Data::Dumper;
+
 method index ($board, $page = 0) {
+  $self->stash->{aaaaaaaaa} = 'bbbbbbbbbb';
+
+  say Dumper($self);
+
   $self->render(template('board-index.tx', {
     default_style => 'Yotsuba B',
     static_res_base => '/s/',
