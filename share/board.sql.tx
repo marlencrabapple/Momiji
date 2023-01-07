@@ -37,3 +37,7 @@ CREATE TABLE "<: $board :>_file" (
                    --value (e.g one {ffprobe: ..., exiftool: ..., mediainfo: ...})
   "status" TINYINT --Processing, etc.
 );
+
+CREATE TABLE "<: $board :>_comment_file {
+
+};

@@ -9,16 +9,23 @@ use autodie;
 use DBI;
 use DBD::SQLite::Constants ':dbd_sqlite_string_mode';
 
+use Momiji::Model::Board;
+
 role Momiji::Db {
   field $dbh_old;
-  field $config;
+  # field $config;
 
   method init_db {
+    my $config = $self->app->config;
+    
     $self->app->config->{db}{attr} //= {};
     $self->app->config->{db}{attr}->@{qw/AutoCommit RaiseError sqlite_string_mode/}
       = (1, 1, DBD_SQLITE_STRING_MODE_UNICODE_STRICT);
 
-    $self->dbh
+    foreach my $board ($$config{boards}->@*) {
+      my $model = Momiji::Model::Board->new(name => $$board{name}, dbh => $self->dbh);
+      $model->init
+    }
   }
 
   method dbh {
