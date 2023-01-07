@@ -8,13 +8,17 @@ use v5.36;
 use autodie;
 
 use Momiji::Model::Board::Post;
-# use Momiji::Model::Board::File;
+use Momiji::Model::Board::File;
 
 use Data::Dumper;
 
 field $name :param;
 field $post :reader;
 field $file :reader;
+
+# CREATE TABLE "<: $board :>_comment_file {
+
+# };
 
 ADJUSTPARAMS ($params) {
   $post = Momiji::Model::Board::Post->new(

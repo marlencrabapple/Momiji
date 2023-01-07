@@ -46,9 +46,7 @@
         <option value="sage">meta</option>
         <option value="sage">off-topic</option>
         <optgroup label="Flag">
-          <option>Location (IP)</option>
-          <option>Kekistan</option>
-          <option>Anarchist</option>
+          <option>...</option>
         </optgroup>
       </select>
       <div class="post-opts-curr">

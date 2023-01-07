@@ -24,7 +24,7 @@ state $columns_base = Hash::Ordered->new(
   # Dunno if I actually want to store these, depends on how easily I can cache them elsewhere
   date => { not_null => 1 },
 
-  ip => { type => 'INTEGER', not_null => 1},
+  ip => { type => 'INTEGER', not_null => 1 },
   (map { $_, {} } qw/name link subject comment comment_formatted/),
   (map { $_, { type => 'TINYINT' } } qw/sticky permasage locked tnmask location flag staff pass/),
   options => { type => 'JSON' },

@@ -18,8 +18,8 @@ role Momiji::Db {
   method init_db {
     my $config = $self->app->config;
     
-    $self->app->config->{db}{attr} //= {};
-    $self->app->config->{db}{attr}->@{qw/AutoCommit RaiseError sqlite_string_mode/}
+    # $config->{db}{attr} //= {};
+    $config->{db}{attr}->@{qw/AutoCommit RaiseError sqlite_string_mode/}
       = (1, 1, DBD_SQLITE_STRING_MODE_UNICODE_STRICT);
 
     foreach my $board ($$config{boards}->@*) {

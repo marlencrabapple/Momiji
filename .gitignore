@@ -13,3 +13,10 @@
 *.s3db
 *.sl3
 /.vscode
+/Momiji-*
+/.build
+/_build*
+/Build
+MYMETA.*
+!META.json
+/.prove
