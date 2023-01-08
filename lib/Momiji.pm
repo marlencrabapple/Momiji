@@ -9,17 +9,21 @@ use utf8;
 use v5.36;
 use autodie;
 
-# use Momiji::Request;
-
 use YAML::Tiny;
 use Data::Dumper;
 
 field $config :reader;
+field $config_defaults :reader;
 
 ADJUST {
+  $config_defaults = YAML::Tiny->read('config-defaults.yml')->[0];
   $config = YAML::Tiny->read($ENV{MOMIJI_CONFIG_FILE} || 'config.yml')->[0];
+
+  # Board specific configs won't be handled this way obviously
+  $config = {%$config_defaults, %$config};
+  say Dumper($config);
+  
   $self->init_db
-  # $self->request_class = 'Momiji::Request';
 }
 
 method startup {

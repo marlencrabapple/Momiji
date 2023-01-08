@@ -1,0 +1,106 @@
+---
+charset: utf-8
+
+threads_per_page: 15
+max_replies: 5
+max_upload_replies: -1
+max_pages: -1
+
+field_max_len: 256
+comment_max_len: 2000
+
+thread_cooldown: 30
+reply_cooldown: 10
+live_cooldown: 5
+delete_cooldown: 60
+
+default_style: 'Yotsuba B'
+
+post_default_options:
+  - noko
+
+display_sage: 1 # Maybe we'll come up with a better way to denote if something is bumped or not
+                # I don't want it to be analogous to up/downvotes
+
+upload_max_size: 5MB
+
+thumbnail_op:
+  w: 250
+  h: 250
+
+thumbnail_reply:
+  w: 200
+  h: 200
+
+thumbnail_format:
+  reply:
+    w: 200
+    h: 200
+  op:
+    w: 250
+    h: 250
+  codec:
+    static: ['jpeg', 'png'] # Automatically chooses by upload file ext
+    motion:
+      - gif
+      # And this is one way you could write it manually:
+      - from: video
+        to: webm
+  quality: ~ # Dunno what I want this to be for GD or ffmpeg yet
+
+# This should allow me to define a singlular (meta-)format w/ multiple extensions, containers, and stream configurations
+# Obviously you can't get too crazy and what I've drafted out so far needs a lot of refining
+media_formats:
+  - type: live
+
+  - type: video
+    max_duration: -1
+    # max_filesize: &upload_max_size
+    ext: # Should we also have a containers key and where should it be a sibling to ext or property of its children
+      - webm
+      - mp4
+      - mkv
+      - flv
+      - avi
+      - mp(?:e)?g
+    streams:
+      - type: video
+        codecs: # All supported video codecs if not set
+          - h264
+          - vp8
+          - vp9
+          - av1
+        max_dimensions:
+          w: -1
+          h: -1
+        max: 1 # Only one video stream per file
+      
+      - type: audio
+        codecs:
+          - mp3
+          - aac
+          - vorbis
+          - opus
+          - flac
+        # max: 1
+
+      - type: permissive # Allows arbitrary streams for things like subtitles/captions and fonts
+
+  - type: image
+    max_dimensions:
+      w: -1
+      h: -1
+    ext:
+      - jp(?:e)?g
+      - png
+      - gif
+      - webp
+      - jxl
+      - avif
+  - type: audio
+    ext:
+      - mp3
+      - aac
+      - vorbis
+      - opus
+      - flac
