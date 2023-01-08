@@ -14,7 +14,7 @@ reply_cooldown: 10
 live_cooldown: 5
 delete_cooldown: 60
 
-default_style: 'Yotsuba B'
+default_style: Yotsuba B
 
 post_default_options:
   - noko
@@ -40,7 +40,7 @@ thumbnail_format:
     w: 250
     h: 250
   codec:
-    static: ['jpeg', 'png'] # Automatically chooses by upload file ext
+    static: [jpeg, png] # Automatically chooses by upload file ext
     motion:
       - gif
       # And this is one way you could write it manually:
