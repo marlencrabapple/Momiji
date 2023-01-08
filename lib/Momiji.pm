@@ -34,8 +34,12 @@ method startup {
     $self->render('<pre>' . Dumper($self) . '</pre>')
   });
 
+  # These should be auto-generated per board according to their configs
   $r->get('/:board', 'board#index');
-  $r->get('/:board/:page', { page => qr/^[0-9]+$/ }, 'board#index')
+  $r->get('/:board/:page', { page => qr/^[0-9]+$/ }, 'board#index');
+  $r->get('/:board/thread/:no', { no => qr/^[0-9]+$/ }, 'board#index');
+  
+  $r->post('/:board/post', 'board#post')
 }
 
 1
