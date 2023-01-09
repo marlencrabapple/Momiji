@@ -13,19 +13,61 @@ use Momiji::Model::Board;
 
 use Data::Dumper;
 use List::Util 'any';
+use Text::Markdown::Hoedown;
 
-method index ($board, $page = 0) {
+method index ($board_path, $page = 0) {
   my $app = $self->app;
   my $req = $app->req;
-
-  return $self->render_404
-    unless any { $board eq $$_{path} } $app->config->{boards}->@*;
   
   $self->render(template('board-index.tx', {
-    default_style => 'Yotsuba B',
-    static_res_base => '/s/',
-    static_uri => '/s/'
+    board => $self->stash->{board},
+    page => $page
   }))
+}
+
+method view_thread ($board_path, $thread_no) {
+  my $dbh = $self->app->dbh;
+  my $board = $self->stash->{board};
+
+  # Obviously I should be doing all of the db stuff in the model...
+  my $sth = $dbh->prepare("SELECT * FROM $$board{name}\_post WHERE postno=? OR parent=? ORDER BY postno ASC");
+  $sth->execute($thread_no, $thread_no);
+
+  my @thread;
+
+  while(my $row = $sth->fetchrow_hashref) {
+    push @thread, $row
+  }
+
+  $self->render(template('board-index.tx', {
+    board => $self->stash->{board},
+    threads => [ { posts => \@thread } ]
+  }))
+}
+
+method new_post ($board_path) {
+  my $req = $self->app->req;
+  my $params = $req->parameters;
+  my $uploads = $req->uploads;
+  my $dbh = $self->app->dbh;
+  my $board = $self->stash->{board};
+
+  if($$params{thread}) {
+    my $sth = $dbh->prepare("SELECT count(postno) FROM $$board{name}\_comme");
+  }
+
+  if($uploads) {
+
+  }
+
+  if($req->maybe_ajax) {
+
+  }
+  else {
+
+  }
+
+  $self->render('<pre>' . Dumper($self->app->req) . '</pre>')
 }
 
 1

@@ -322,7 +322,7 @@ form.post-form span.input-control a {
   width: 82%!important
 }
 
-.post-form input[name=submit] {
+.post-form input#submit[type=submit] {
   vertical-align: middle;
   flex: auto
 }

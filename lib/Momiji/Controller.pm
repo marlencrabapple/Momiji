@@ -9,6 +9,13 @@ use autodie;
 
 # use Text::Xslate;
 
+# use Exporter 'import';
+
+# our @EXPORT = qw(template);
+
+$Frame::Controller::template_vars->@{qw/default_style static_res_base/}
+  = ('Yotsuba B', '/s/');
+
 # state $tx_default = Text::Xslate->new(
 #   cache => $ENV{'PLACK_ENV'} && $ENV{'PLACK_ENV'} eq 'development' ? 0 : 1,
 #   path => ['view'],
@@ -18,5 +25,7 @@ use autodie;
 #     $text
 #   }
 # );
+
+# $Frame::Controller::tx_default = $tx_default;
 
 1

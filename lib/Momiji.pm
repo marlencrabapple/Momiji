@@ -11,6 +11,7 @@ use autodie;
 
 use YAML::Tiny;
 use Data::Dumper;
+use List::Util 'any';
 
 field $config :reader;
 field $config_defaults :reader;
@@ -21,26 +22,41 @@ ADJUST {
 
   # Board specific configs won't be handled this way obviously
   $config = {%$config_defaults, %$config};
-  say Dumper($config);
   
+  $self->charset = $$config{charset};
   $self->init_db
 }
 
 method startup {
   my $r = $self->routes;
+  my $config = $self->config;
   
   $r->get('/', sub ($self) {
     $self->stash->{時} = time;
     $self->render('<pre>' . Dumper($self) . '</pre>')
   });
 
-  # These should be auto-generated per board according to their configs
-  $r->get('/:board', 'board#index');
-  $r->get('/:board/:page', { page => qr/^[0-9]+$/ }, 'board#index');
-  $r->get('/:board/thread/:no', { no => qr/^[0-9]+$/ }, 'board#index');
-  
-  $r->post('/:board/post', 'board#post')
+  sub valid_board ($self, $board) {
+    ($self->stash->{board}) = grep { $board eq $$_{path} } $self->app->config->{boards}->@*;
+    $self->stash->{board} ? 1 : 0
+  };
+
+  # Real world these should be auto-generated per board according to their configs
+  # But if I did go this route (ha) it'd be a good idea to give traversing our routes
+  # level by level another shot, rather than by depth and then starting over when
+  # something doesn't match (and skipping the no-match after starting over)
+  state $isnum = qr/^[0-9]+$/;
+
+  $r->get('/:board', { board => \&valid_board }, 'board#index');
+  $r->get('/:board/:page', { board => \&valid_board, page => $isnum }, 'board#index');
+  $r->get('/:board/thread/:no', { board => \&valid_board, no => $isnum }, 'board#view_thread');
+
+  $r->post('/:board/post', { board => \&valid_board }, 'board#new_post')
 }
+
+# method valid_board {
+#   any { $$_{path} eq $req->placeholders->{board} } @$self->config->{boards}
+# }
 
 1
 __END__

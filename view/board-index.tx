@@ -1,7 +1,7 @@
 : cascade "layout/futaba.html.tx"
 
 : override content -> {
-  <form id="postForm" class="post-form" name="post" method="POST" type="form/multipart">
+  <form id="postForm" class="post-form" name="post" method="POST" action="/<: $board.path :>/post" enctype="multipart/form-data">
     <div class="input-row">
       <label for="name">Name</label>
       <div class="shadow-group">
@@ -19,7 +19,7 @@
       <label for="link">Subject</label>
       <div class="submit-row">
         <input type="text" name="subject">
-        <input type="button" type="submit" name="submit" value="Post">
+        <input type="submit" id="submit" value="Post">
       </div>
     </div>
     <div class="input-row">

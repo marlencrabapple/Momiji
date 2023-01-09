@@ -44,6 +44,7 @@ requires 'Parallel::Prefork', '0.18';
 
 requires 'Time::Moment', '0.44';
 requires 'DateTime::TimeZone', '2.57';
+requires 'Text::Markdown::Hoedown', '1.03';
 
 requires 'Image::ExifTool', '12.42';
 requires 'GD', '2.76';

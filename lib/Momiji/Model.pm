@@ -22,7 +22,9 @@ field $constraints :mutator;
 
 ADJUSTPARAMS ($params) {
   $sqla = SQL::Abstract->new;
-  $dbh //= $$params{dbh}
+  $dbh //= $$params{dbh};
+  $columns //= Hash::Ordered->new;
+  $constraints //= Hash::Ordered->new;
 }
 
 method create_table {
@@ -53,19 +55,21 @@ method create_table {
     push @fields, $field
   }
 
-  # foreach my $key ($constraints->keys) {
-  #   my $val = $constraints->get($key);
-  #   my $field;
-  
-  #   if($key eq 'primary_key') {
-  #     $field = 'PRIMARY KEY (' . join ',', @$val . ')'
-  #   }
+  push @fields, "attr TEXT";
 
-  #   push @fields, $field
-  # }
+  foreach my $key ($constraints->keys) {
+    my $val = $constraints->get($key);
+    my $field;
+  
+    if($key eq 'primary_key') {
+      $field = 'PRIMARY KEY (' . join ',', @$val . ')'
+    }
+
+    push @fields, $field
+  }
 
   my $sql = $sqla->generate('CREATE TABLE', \$table, \@fields);
-  say Dumper($table, $columns, \@fields, $sql);
+  # say Dumper($table, $columns, $constraints, \@fields, $sql);
 
   try {
     my $sth = $dbh->prepare($sql);

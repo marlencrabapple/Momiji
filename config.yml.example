@@ -1,0 +1,23 @@
+---
+db:
+  source: "dbi:SQLite:dbname=momiji.sqlite3"
+  username: ""
+  auth: ""
+
+# You can also configure boards in boards/<board_name>.yml
+boards:
+  - name: dev
+    path: dev
+    title: Test Board
+#  - name: ...
+#    path: ...
+#    title: ...
+
+# Not 100% sure how I want to handle these yet
+secrets:
+  trip: "change_me"
+  admin: "change_me"
+  admin_cookie: "change_me"
+  pass: "change_me"
+  pass_cookie: "change_me"
+  delete: "change_me"

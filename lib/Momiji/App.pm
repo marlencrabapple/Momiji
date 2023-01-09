@@ -9,8 +9,13 @@ use autodie;
 
 use Momiji;
 
-my $app = Momiji->new;
-my $psgi = $app->to_psgi;
+field $app;
+field $psgi;
+
+ADJUST {
+  $app = Momiji->new;
+  $psgi = $app->to_psgi;
+}
 
 state %dispatch = (
   new => 'new_app',

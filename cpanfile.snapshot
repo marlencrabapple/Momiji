@@ -1763,12 +1763,12 @@ DISTRIBUTIONS
       Test::Requires 0
       Test::SharedFork 0
       perl 5.008001
-  Params-ValidationCompiler-0.30
-    pathname: D/DR/DROLSKY/Params-ValidationCompiler-0.30.tar.gz
+  Params-ValidationCompiler-0.31
+    pathname: D/DR/DROLSKY/Params-ValidationCompiler-0.31.tar.gz
     provides:
-      Params::ValidationCompiler 0.30
-      Params::ValidationCompiler::Compiler 0.30
-      Params::ValidationCompiler::Exceptions 0.30
+      Params::ValidationCompiler 0.31
+      Params::ValidationCompiler::Compiler 0.31
+      Params::ValidationCompiler::Exceptions 0.31
     requirements:
       B 0
       Carp 0
@@ -2120,60 +2120,60 @@ DISTRIBUTIONS
       XS::Parse::Keyword 0.13
       XS::Parse::Keyword::Builder 0.13
       perl 5.014
-  Test-Deep-1.202
-    pathname: R/RJ/RJBS/Test-Deep-1.202.tar.gz
+  Test-Deep-1.204
+    pathname: R/RJ/RJBS/Test-Deep-1.204.tar.gz
     provides:
-      Test::Deep 1.202
-      Test::Deep::All 1.202
-      Test::Deep::Any 1.202
-      Test::Deep::Array 1.202
-      Test::Deep::ArrayEach 1.202
-      Test::Deep::ArrayElementsOnly 1.202
-      Test::Deep::ArrayLength 1.202
-      Test::Deep::ArrayLengthOnly 1.202
-      Test::Deep::Blessed 1.202
-      Test::Deep::Boolean 1.202
-      Test::Deep::Cache 1.202
-      Test::Deep::Cache::Simple 1.202
-      Test::Deep::Class 1.202
-      Test::Deep::Cmp 1.202
-      Test::Deep::Code 1.202
-      Test::Deep::Hash 1.202
-      Test::Deep::HashEach 1.202
-      Test::Deep::HashElements 1.202
-      Test::Deep::HashKeys 1.202
-      Test::Deep::HashKeysOnly 1.202
-      Test::Deep::Ignore 1.202
-      Test::Deep::Isa 1.202
-      Test::Deep::ListMethods 1.202
-      Test::Deep::MM 1.202
-      Test::Deep::Methods 1.202
-      Test::Deep::NoTest 1.202
-      Test::Deep::None 1.202
-      Test::Deep::Number 1.202
-      Test::Deep::Obj 1.202
-      Test::Deep::Ref 1.202
-      Test::Deep::RefType 1.202
-      Test::Deep::Regexp 1.202
-      Test::Deep::RegexpMatches 1.202
-      Test::Deep::RegexpOnly 1.202
-      Test::Deep::RegexpRef 1.202
-      Test::Deep::RegexpRefOnly 1.202
-      Test::Deep::RegexpVersion 1.202
-      Test::Deep::ScalarRef 1.202
-      Test::Deep::ScalarRefOnly 1.202
-      Test::Deep::Set 1.202
-      Test::Deep::Shallow 1.202
-      Test::Deep::Stack 1.202
-      Test::Deep::String 1.202
-      Test::Deep::SubHash 1.202
-      Test::Deep::SubHashElements 1.202
-      Test::Deep::SubHashKeys 1.202
-      Test::Deep::SubHashKeysOnly 1.202
-      Test::Deep::SuperHash 1.202
-      Test::Deep::SuperHashElements 1.202
-      Test::Deep::SuperHashKeys 1.202
-      Test::Deep::SuperHashKeysOnly 1.202
+      Test::Deep 1.204
+      Test::Deep::All 1.204
+      Test::Deep::Any 1.204
+      Test::Deep::Array 1.204
+      Test::Deep::ArrayEach 1.204
+      Test::Deep::ArrayElementsOnly 1.204
+      Test::Deep::ArrayLength 1.204
+      Test::Deep::ArrayLengthOnly 1.204
+      Test::Deep::Blessed 1.204
+      Test::Deep::Boolean 1.204
+      Test::Deep::Cache 1.204
+      Test::Deep::Cache::Simple 1.204
+      Test::Deep::Class 1.204
+      Test::Deep::Cmp 1.204
+      Test::Deep::Code 1.204
+      Test::Deep::Hash 1.204
+      Test::Deep::HashEach 1.204
+      Test::Deep::HashElements 1.204
+      Test::Deep::HashKeys 1.204
+      Test::Deep::HashKeysOnly 1.204
+      Test::Deep::Ignore 1.204
+      Test::Deep::Isa 1.204
+      Test::Deep::ListMethods 1.204
+      Test::Deep::MM 1.204
+      Test::Deep::Methods 1.204
+      Test::Deep::NoTest 1.204
+      Test::Deep::None 1.204
+      Test::Deep::Number 1.204
+      Test::Deep::Obj 1.204
+      Test::Deep::Ref 1.204
+      Test::Deep::RefType 1.204
+      Test::Deep::Regexp 1.204
+      Test::Deep::RegexpMatches 1.204
+      Test::Deep::RegexpOnly 1.204
+      Test::Deep::RegexpRef 1.204
+      Test::Deep::RegexpRefOnly 1.204
+      Test::Deep::RegexpVersion 1.204
+      Test::Deep::ScalarRef 1.204
+      Test::Deep::ScalarRefOnly 1.204
+      Test::Deep::Set 1.204
+      Test::Deep::Shallow 1.204
+      Test::Deep::Stack 1.204
+      Test::Deep::String 1.204
+      Test::Deep::SubHash 1.204
+      Test::Deep::SubHashElements 1.204
+      Test::Deep::SubHashKeys 1.204
+      Test::Deep::SubHashKeysOnly 1.204
+      Test::Deep::SuperHash 1.204
+      Test::Deep::SuperHashElements 1.204
+      Test::Deep::SuperHashKeys 1.204
+      Test::Deep::SuperHashKeysOnly 1.204
     requirements:
       ExtUtils::MakeMaker 6.78
       List::Util 1.09
@@ -2229,6 +2229,89 @@ DISTRIBUTIONS
       Test::Builder::Module 0
       Test::More 0.88
       perl 5.008_001
+  Test-Simple-1.302191
+    pathname: E/EX/EXODIST/Test-Simple-1.302191.tar.gz
+    provides:
+      Test2 1.302191
+      Test2::API 1.302191
+      Test2::API::Breakage 1.302191
+      Test2::API::Context 1.302191
+      Test2::API::Instance 1.302191
+      Test2::API::InterceptResult 1.302191
+      Test2::API::InterceptResult::Event 1.302191
+      Test2::API::InterceptResult::Facet 1.302191
+      Test2::API::InterceptResult::Hub 1.302191
+      Test2::API::InterceptResult::Squasher 1.302191
+      Test2::API::Stack 1.302191
+      Test2::Event 1.302191
+      Test2::Event::Bail 1.302191
+      Test2::Event::Diag 1.302191
+      Test2::Event::Encoding 1.302191
+      Test2::Event::Exception 1.302191
+      Test2::Event::Fail 1.302191
+      Test2::Event::Generic 1.302191
+      Test2::Event::Note 1.302191
+      Test2::Event::Ok 1.302191
+      Test2::Event::Pass 1.302191
+      Test2::Event::Plan 1.302191
+      Test2::Event::Skip 1.302191
+      Test2::Event::Subtest 1.302191
+      Test2::Event::TAP::Version 1.302191
+      Test2::Event::V2 1.302191
+      Test2::Event::Waiting 1.302191
+      Test2::EventFacet 1.302191
+      Test2::EventFacet::About 1.302191
+      Test2::EventFacet::Amnesty 1.302191
+      Test2::EventFacet::Assert 1.302191
+      Test2::EventFacet::Control 1.302191
+      Test2::EventFacet::Error 1.302191
+      Test2::EventFacet::Hub 1.302191
+      Test2::EventFacet::Info 1.302191
+      Test2::EventFacet::Info::Table 1.302191
+      Test2::EventFacet::Meta 1.302191
+      Test2::EventFacet::Parent 1.302191
+      Test2::EventFacet::Plan 1.302191
+      Test2::EventFacet::Render 1.302191
+      Test2::EventFacet::Trace 1.302191
+      Test2::Formatter 1.302191
+      Test2::Formatter::TAP 1.302191
+      Test2::Hub 1.302191
+      Test2::Hub::Interceptor 1.302191
+      Test2::Hub::Interceptor::Terminator 1.302191
+      Test2::Hub::Subtest 1.302191
+      Test2::IPC 1.302191
+      Test2::IPC::Driver 1.302191
+      Test2::IPC::Driver::Files 1.302191
+      Test2::Tools::Tiny 1.302191
+      Test2::Util 1.302191
+      Test2::Util::ExternalMeta 1.302191
+      Test2::Util::Facets2Legacy 1.302191
+      Test2::Util::HashBase 1.302191
+      Test2::Util::Trace 1.302191
+      Test::Builder 1.302191
+      Test::Builder::Formatter 1.302191
+      Test::Builder::IO::Scalar 2.114
+      Test::Builder::Module 1.302191
+      Test::Builder::Tester 1.302191
+      Test::Builder::Tester::Color 1.302191
+      Test::Builder::Tester::Tie 1.302191
+      Test::Builder::TodoDiag 1.302191
+      Test::More 1.302191
+      Test::Simple 1.302191
+      Test::Tester 1.302191
+      Test::Tester::Capture 1.302191
+      Test::Tester::CaptureRunner 1.302191
+      Test::Tester::Delegate 1.302191
+      Test::use::ok 1.302191
+      ok 1.302191
+    requirements:
+      ExtUtils::MakeMaker 0
+      File::Spec 0
+      File::Temp 0
+      Scalar::Util 1.13
+      Storable 0
+      perl 5.006002
+      utf8 0
   Test-TCP-2.22
     pathname: M/MI/MIYAGAWA/Test-TCP-2.22.tar.gz
     provides:
@@ -2243,6 +2326,16 @@ DISTRIBUTIONS
       Test::SharedFork 0.29
       Time::HiRes 0
       perl 5.008001
+  Text-Markdown-Hoedown-1.03
+    pathname: T/TO/TOKUHIROM/Text-Markdown-Hoedown-1.03.tar.gz
+    provides:
+      Text::Markdown::Hoedown 1.03
+    requirements:
+      Exporter 0
+      ExtUtils::CBuilder 0
+      Module::Build 0.4005
+      parent 0
+      perl 5.008005
   Text-Xslate-v3.5.9
     pathname: S/SK/SKAJI/Text-Xslate-v3.5.9.tar.gz
     provides:
