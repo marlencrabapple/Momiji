@@ -18,6 +18,8 @@ use Text::Markdown::Hoedown;
 method index ($board_path, $page = 0) {
   my $app = $self->app;
   my $req = $app->req;
+
+  # say Dumper($app->option($self->stash->{board}{name}))
   
   $self->render(template('board-index.tx', {
     board => $self->stash->{board},
@@ -29,20 +31,14 @@ method view_thread ($board_path, $thread_no) {
   my $dbh = $self->app->dbh;
   my $board = $self->stash->{board};
 
-  # Obviously I should be doing all of the db stuff in the model...
-  my $sth = $dbh->prepare("SELECT * FROM $$board{name}\_post WHERE postno=? OR parent=? ORDER BY postno ASC");
-  $sth->execute($thread_no, $thread_no);
+  my $thread = $$board{model}->thread($thread_no);
 
-  my @thread;
+  $self->render(Dumper($thread));
 
-  while(my $row = $sth->fetchrow_hashref) {
-    push @thread, $row
-  }
-
-  $self->render(template('board-index.tx', {
-    board => $self->stash->{board},
-    threads => [ { posts => \@thread } ]
-  }))
+  # $self->render(template('board-index.tx', {
+  #   board => $self->stash->{board},
+  #   threads => [ { posts => $thread } ]
+  # }))
 }
 
 method new_post ($board_path) {

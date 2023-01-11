@@ -42,4 +42,41 @@ ADJUSTPARAMS ( $params ) {
   $columns->get('parent')->{foreign_key} = "$table(postno)"
 }
 
+method post ($board_model, $arg, $cache = 1) {
+  my $post;
+
+  if($arg->isa('Momiji::Post')) { # New/edit post
+    my $sth;
+
+    if($$arg{dbrow} && $$arg->has_changes) {
+      my %where = { postno => $$arg{dbrow}{postno} };
+
+      my $sql = $self->sqla->update;
+      ...;
+
+      $sth = $self->dbh->prepare($sql);
+      $sth->execute;
+
+      delete $$arg{dbrow} # This won't be updated if $cache != 0
+    }
+    else {
+      my $sql = $self->sqla->insert;
+      
+      $sth = $self->dbh->prepare($sql);
+      $sth->execute
+    }
+
+    $post = $cache ? $arg : Momiji::Post->new(board_model => $board_model, dbrow => $sth->fetchrow_hashref)
+  }
+  elsif($arg =~ /^[0-9]+$/) { # Get post
+    my $sql = $self->sqla->select($table, '*', { postno => $arg });
+    my $sth = $self->dbh->prepare($sql);
+    $sth->execute;
+
+    $post = $sth->fetchrow_hashref
+  }
+
+  $post
+}
+
 1

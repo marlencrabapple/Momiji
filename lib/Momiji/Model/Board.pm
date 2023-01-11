@@ -13,22 +13,51 @@ use Momiji::Model::Board::File;
 use Data::Dumper;
 
 field $name :param;
-field $post :reader;
-field $file :reader;
+field $max_threads_page :param :reader;
+field $config :param;
+field $config_top_lvl :param;
 
-# CREATE TABLE "<: $board :>_comment_file {
-
-# };
+field $post_model :reader;
+field $file_model :reader;
 
 ADJUSTPARAMS ($params) {
-  $post = Momiji::Model::Board::Post->new(
+  $post_model = Momiji::Model::Board::Post->new(
     table => "$name\_post",
     dbh => $self->dbh || $$params{dbh}
   )
 }
 
 method init {
-  $post->create_table
+  $post_model->create_table
+}
+
+method threads ($page = 0) {
+
+}
+
+method thread ($thread_no) {
+  my @where = (
+    { postno => $thread_no, },
+    { parent => $thread_no }
+  );
+
+  my $sql = $self->sqla->select($post_model->table, '*', \@where, { -asc => 'postno' });
+  say Dumper($sql);
+  my $sth = $self->dbh->prepare($sql);
+  $sth->execute;
+
+  my @posts;
+
+  while (my $row = $sth->fetchrow_hashref) {
+    push @posts, $row
+  }
+
+  # Momiji::Thread->new(board_model => $self, posts => @posts)
+  \@posts
+}
+
+method post {
+  $post_model->post($self, @_)
 }
 
 1

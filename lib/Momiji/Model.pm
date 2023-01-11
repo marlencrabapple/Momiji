@@ -68,16 +68,18 @@ method create_table {
     push @fields, $field
   }
 
-  my $sql = $sqla->generate('CREATE TABLE', \$table, \@fields);
+  my $sql = $sqla->generate('CREATE TABLE IF NOT EXISTS', \$table, \@fields);
   # say Dumper($table, $columns, $constraints, \@fields, $sql);
 
-  try {
-    my $sth = $dbh->prepare($sql);
-    $sth->execute
-  }
-  catch ($e) {
-    carp $e
-  }
+  my $sth = $dbh->prepare($sql);
+  $sth->execute
 }
+
+# method table_exists {
+#   my $sth = $dbh->prepare("");
+#   $sth->execute;
+
+#   $sth->fetchrow_array
+# }
 
 1

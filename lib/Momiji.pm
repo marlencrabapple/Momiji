@@ -1,7 +1,7 @@
 use Object::Pad;
 
 package Momiji;
-class Momiji :does(Frame) :does(Momiji::Db);
+class Momiji :does(Frame) :does(Momiji::Controller) :does(Momiji::Db);
 
 our $VERSION  = '0.01';
 

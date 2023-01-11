@@ -28,4 +28,17 @@ $Frame::Controller::template_vars->@{qw/default_style static_res_base/}
 
 # $Frame::Controller::tx_default = $tx_default;
 
+method option ($board, $opt_path) { # Maybe $board should be a $board_model since that has a ref to its board's config section
+                                    # ...or I can think of something better
+  my $config = $self->app->config;
+  my $opt = $board ? $$config{$board} : $config;
+
+  foreach my $key (split '.', $opt_path) {
+    $opt = $$opt{$key};
+    last unless ref($opt) =~ /HASH|ARRAY/
+  }
+
+  $opt ? $opt : $board ? $self->option(undef, $opt_path) : undef
+}
+
 1
