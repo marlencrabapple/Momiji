@@ -50,10 +50,10 @@ DISTRIBUTIONS
       File::Spec 0.80
       base 0
       perl 5.008
-  Class-Method-Modifiers-2.13
-    pathname: E/ET/ETHER/Class-Method-Modifiers-2.13.tar.gz
+  Class-Method-Modifiers-2.14
+    pathname: E/ET/ETHER/Class-Method-Modifiers-2.14.tar.gz
     provides:
-      Class::Method::Modifiers 2.13
+      Class::Method::Modifiers 2.14
     requirements:
       B 0
       Carp 0
@@ -1139,18 +1139,18 @@ DISTRIBUTIONS
       Exporter 5.57
       ExtUtils::MakeMaker 0
       perl 5.008
-  IO-Socket-SSL-2.078
-    pathname: S/SU/SULLR/IO-Socket-SSL-2.078.tar.gz
+  IO-Socket-SSL-2.081
+    pathname: S/SU/SULLR/IO-Socket-SSL-2.081.tar.gz
     provides:
-      IO::Socket::SSL 2.078
+      IO::Socket::SSL 2.081
       IO::Socket::SSL::Intercept 2.056
-      IO::Socket::SSL::OCSP_Cache 2.078
-      IO::Socket::SSL::OCSP_Resolver 2.078
+      IO::Socket::SSL::OCSP_Cache 2.081
+      IO::Socket::SSL::OCSP_Resolver 2.081
       IO::Socket::SSL::PublicSuffix undef
-      IO::Socket::SSL::SSL_Context 2.078
-      IO::Socket::SSL::SSL_HANDLE 2.078
-      IO::Socket::SSL::Session_Cache 2.078
-      IO::Socket::SSL::Trace 2.078
+      IO::Socket::SSL::SSL_Context 2.081
+      IO::Socket::SSL::SSL_HANDLE 2.081
+      IO::Socket::SSL::Session_Cache 2.081
+      IO::Socket::SSL::Trace 2.081
       IO::Socket::SSL::Utils 2.015
     requirements:
       ExtUtils::MakeMaker 0
@@ -1688,16 +1688,16 @@ DISTRIBUTIONS
       Text::Wrap 0
       constant 0
       perl 5.008001
-  Object-Pad-0.77
-    pathname: P/PE/PEVANS/Object-Pad-0.77.tar.gz
+  Object-Pad-0.78
+    pathname: P/PE/PEVANS/Object-Pad-0.78.tar.gz
     provides:
-      Object::Pad 0.77
-      Object::Pad::ExtensionBuilder 0.77
-      Object::Pad::MOP::Class 0.77
-      Object::Pad::MOP::Field 0.77
-      Object::Pad::MOP::FieldAttr 0.77
-      Object::Pad::MOP::Method 0.77
-      Object::Pad::MetaFunctions 0.77
+      Object::Pad 0.78
+      Object::Pad::ExtensionBuilder 0.78
+      Object::Pad::MOP::Class 0.78
+      Object::Pad::MOP::Field 0.78
+      Object::Pad::MOP::FieldAttr 0.78
+      Object::Pad::MOP::Method 0.78
+      Object::Pad::MetaFunctions 0.78
     requirements:
       ExtUtils::CBuilder 0
       Module::Build 0.4004
@@ -2100,11 +2100,11 @@ DISTRIBUTIONS
     requirements:
       ExtUtils::MakeMaker 0
       Test::More 0
-  Sub-Quote-2.006006
-    pathname: H/HA/HAARG/Sub-Quote-2.006006.tar.gz
+  Sub-Quote-2.006008
+    pathname: H/HA/HAARG/Sub-Quote-2.006008.tar.gz
     provides:
-      Sub::Defer 2.006006
-      Sub::Quote 2.006006
+      Sub::Defer 2.006008
+      Sub::Quote 2.006008
     requirements:
       ExtUtils::MakeMaker 0
       Scalar::Util 0
@@ -2549,13 +2549,13 @@ DISTRIBUTIONS
       Fcntl 0
       URI 1.10
       perl 5.008001
-  XS-Parse-Keyword-0.31
-    pathname: P/PE/PEVANS/XS-Parse-Keyword-0.31.tar.gz
+  XS-Parse-Keyword-0.32
+    pathname: P/PE/PEVANS/XS-Parse-Keyword-0.32.tar.gz
     provides:
-      XS::Parse::Infix 0.31
-      XS::Parse::Infix::Builder 0.31
-      XS::Parse::Keyword 0.31
-      XS::Parse::Keyword::Builder 0.31
+      XS::Parse::Infix 0.32
+      XS::Parse::Infix::Builder 0.32
+      XS::Parse::Keyword 0.32
+      XS::Parse::Keyword::Builder 0.32
     requirements:
       ExtUtils::CBuilder 0
       ExtUtils::CChecker 0.11

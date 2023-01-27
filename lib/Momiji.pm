@@ -13,17 +13,7 @@ use YAML::Tiny;
 use Data::Dumper;
 use List::Util 'any';
 
-field $config :reader;
-field $config_defaults :reader;
-
 ADJUST {
-  $config_defaults = YAML::Tiny->read('config-defaults.yml')->[0];
-  $config = YAML::Tiny->read($ENV{MOMIJI_CONFIG_FILE} || 'config.yml')->[0];
-
-  # Board specific configs won't be handled this way obviously
-  $config = {%$config_defaults, %$config};
-  
-  $self->charset = $$config{charset};
   $self->init_db
 }
 
@@ -35,6 +25,10 @@ method startup {
     $self->stash->{時} = time;
     $self->render('<pre>' . Dumper($self) . '</pre>')
   });
+
+  $r->get('/r', sub ($self) { $self->render('<pre>' . Dumper($r->tree) . Dumper($r->patterns) . '</pre>') });
+
+  $r->get('/:asdf/:fdsa', sub ($self, $asdf, $fdsa) { $self->render($self->req->placeholders) });
 
   sub valid_board ($self, $board) {
     ($self->stash->{board}) = grep { $board eq $$_{path} } $self->app->config->{boards}->@*;

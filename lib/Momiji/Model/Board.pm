@@ -23,7 +23,7 @@ field $file_model :reader;
 ADJUSTPARAMS ($params) {
   $post_model = Momiji::Model::Board::Post->new(
     table => "$name\_post",
-    dbh => $self->dbh || $$params{dbh}
+    app => $$params{app}
   )
 }
 
@@ -42,7 +42,6 @@ method thread ($thread_no) {
   );
 
   my $sql = $self->sqla->select($post_model->table, '*', \@where, { -asc => 'postno' });
-  say Dumper($sql);
   my $sth = $self->dbh->prepare($sql);
   $sth->execute;
 

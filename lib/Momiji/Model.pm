@@ -1,7 +1,7 @@
 use Object::Pad;
 
 package Momiji::Model;
-role Momiji::Model;
+role Momiji::Model :does(Frame::Base);
 
 use utf8;
 use v5.36;
@@ -15,16 +15,20 @@ use SQL::Abstract;
 use Hash::Ordered;
 use Feature::Compat::Try;
 
-field $dbh :param :reader;
-field $sqla :reader;
 field $columns :mutator;
 field $constraints :mutator;
 
 ADJUSTPARAMS ($params) {
-  $sqla = SQL::Abstract->new;
-  $dbh //= $$params{dbh};
   $columns //= Hash::Ordered->new;
   $constraints //= Hash::Ordered->new;
+}
+
+method sqla {
+  $self->app->sqla
+}
+
+method dbh {
+  $self->app->dbh
 }
 
 method create_table {
@@ -68,10 +72,10 @@ method create_table {
     push @fields, $field
   }
 
-  my $sql = $sqla->generate('CREATE TABLE IF NOT EXISTS', \$table, \@fields);
+  my $sql = $self->app->sqla->generate('CREATE TABLE IF NOT EXISTS', \$table, \@fields);
   # say Dumper($table, $columns, $constraints, \@fields, $sql);
 
-  my $sth = $dbh->prepare($sql);
+  my $sth = $self->app->dbh->prepare($sql);
   $sth->execute
 }
 
