@@ -5,7 +5,6 @@ role Momiji::Controller :does(Frame::Controller);
 
 use utf8;
 use v5.36;
-use autodie;
 
 # use Text::Xslate;
 
@@ -27,6 +26,9 @@ $Frame::Controller::template_vars->@{qw/default_style static_res_base/}
 # );
 
 # $Frame::Controller::tx_default = $tx_default;
+
+dmsg "asdf";
+dmsg $INC[0];
 
 method option ($board, $opt_path) { # Maybe $board should be a $board_model since that has a ref to its board's config section
                                     # ...or I can think of something better

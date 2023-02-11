@@ -5,13 +5,11 @@ class Momiji::Controller::Board :does(Momiji::Controller);
 
 use utf8;
 use v5.36;
-use autodie;
 
 use Momiji::Post;
 use Momiji::Thread;
 use Momiji::Model::Board;
 
-use Data::Dumper;
 use List::Util 'any';
 use Text::Markdown::Hoedown;
 

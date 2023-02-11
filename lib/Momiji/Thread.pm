@@ -1,7 +1,7 @@
 package Momiji::Thread;
 
+use utf8;
 use v5.36;
-use autodie;
 
 sub new {
   my ($class, %args) = @_;

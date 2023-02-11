@@ -1,17 +1,18 @@
 use Object::Pad;
 
 package Momiji;
-class Momiji :does(Frame) :does(Momiji::Controller) :does(Momiji::Db);
+class Momiji :does(Frame) :does(Momiji::Db);
 
 our $VERSION  = '0.01';
 
 use utf8;
 use v5.36;
-use autodie;
 
 use YAML::Tiny;
 use Data::Dumper;
 use List::Util 'any';
+
+dmsg "42345";
 
 ADJUST {
   $self->init_db
@@ -21,18 +22,18 @@ method startup {
   my $r = $self->routes;
   my $config = $self->config;
   
-  $r->get('/', sub ($self) {
-    $self->stash->{時} = time;
-    $self->render('<pre>' . Dumper($self) . '</pre>')
+  $r->get('/', sub ($c) {
+    $c->stash->{時} = time;
+    $c->render('<pre>' . Dumper($c, $self) . '</pre>')
   });
 
-  $r->get('/r', sub ($self) { $self->render('<pre>' . Dumper($r->tree) . Dumper($r->patterns) . '</pre>') });
+  $r->get('/r', sub ($c) { $c->render('<pre>' . Dumper($r->tree) . Dumper($r->patterns) . '</pre>') });
 
-  $r->get('/:asdf/:fdsa', sub ($self, $asdf, $fdsa) { $self->render($self->req->placeholders) });
+  $r->get('/:asdf/:fdsa', sub ($c, $asdf, $fdsa) { $c->render($c->req->placeholders) });
 
-  sub valid_board ($self, $board) {
-    ($self->stash->{board}) = grep { $board eq $$_{path} } $self->app->config->{boards}->@*;
-    $self->stash->{board} ? 1 : 0
+  sub valid_board ($c, $board) {
+    ($c->stash->{board}) = grep { $board eq $$_{path} } $c->app->config->{boards}->@*;
+    $c->stash->{board} ? 1 : 0
   };
 
   # Real world these should be auto-generated per board according to their configs

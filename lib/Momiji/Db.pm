@@ -13,8 +13,12 @@ use Momiji::Model::Board;
 
 # field $dbh_old;
 
+dmsg 'asdf';
+
 method init_db {
   my $config = $self->app->config;
+  
+  dmsg 'asdf';
   
   # $config->{db}{attr}->@{qw/AutoCommit RaiseError sqlite_string_mode/}
   #   = (1, 1, DBD_SQLITE_STRING_MODE_UNICODE_STRICT);

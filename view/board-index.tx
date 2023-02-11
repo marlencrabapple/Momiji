@@ -83,20 +83,88 @@
       <small class="input-help">(for streaming and post/file deletion)</small>
     </div>
   </form>
+
   <ul class="board-info">
     <li>Supported filetypes are: GIF, JPG, PNG</li>
     <li>Maximum filesize allowed is 5 MB</li>
     <li>Images greater than 250x250 pixels will be thumbnailed</li>
   </ul>
+
   <hr>
+
   <div id="announcements">
     <h2>hello world c:</h2>
     <div id="blotter">
       <p>...</p>
     </div>
   </div>
+
   <hr>
+
   <form name="delete" method="POST">
+
+  : for $threads -> $thread {
+
+    <div class="thread">
+
+    : for $posts -> $post {
+
+      : if $post.parent == nil {
+      
+      <div class="post op" id="no<: $post.no :>">
+        <div class="post-inner">
+
+          : if $post.file != nil {
+
+          <div class="file">
+            <div class="file-header">
+              File: <a href="<: $post.file.uri :>" class="filename"><: $post.file.name_abr :></a>
+              <span class="file-info">(<: $post.file.fsize :>, <: $post.file.dimens :>)</span>
+            </div>
+            <a href="<: $post.file_uri :>" target="_blank">
+              <img class="file-thumb" src="<: $post.file.tn_uri :>">
+            </a>
+          </div>
+
+          : }
+
+          <div class="post-control">
+            <input type="checkbox" name="posts[]">
+
+            : if $post.subject != nil {
+            <span class="subject"><: $post.subject :></span>
+            : }
+
+            <span class="name"><: $post.name ? $post.name : "Anonymous":></span>
+            <span class="time"><: $post.date_str :></span>
+            <span class="post-no">
+              <a href="javascript:void(0)">No.</a>
+              <a href="javascript:void(0)"><: $post.no :></a>
+            </span>
+            <span class="reply-link"><a href="<: $thread.uri :>">Reply</a></span>
+            <span class="menu-toggle">
+              <a href="javascript:void(0)"></a>
+            </span>
+          </div>
+
+          <div class="post-content">
+            <: $post.comment :>
+          </div>
+
+        </div>
+      </div>
+
+      : }
+
+      : else {
+
+      : }
+
+    : }
+    </div>
+
+  : }
+
     <div class="thread">
       <div class="post op" id="no89879505">
         <div class="post-inner">
