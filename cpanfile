@@ -18,6 +18,7 @@ requires 'Plack', '1.0050';
 requires 'Plack::App::File';
 requires 'Plack::Builder';
 requires 'Plack::Middleware::Static';
+requires 'Plack::Middleware::Debug';
 
 requires 'DBI', '1.643';
 requires 'DBD::SQLite', '1.72';

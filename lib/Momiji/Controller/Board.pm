@@ -6,6 +6,8 @@ class Momiji::Controller::Board :does(Momiji::Controller);
 use utf8;
 use v5.36;
 
+use Frame::Controller; # Until we can import template sub on :does
+
 use Momiji::Post;
 use Momiji::Thread;
 use Momiji::Model::Board;
@@ -15,9 +17,13 @@ use Text::Markdown::Hoedown;
 
 method index ($board_path, $page = 0) {
   my $app = $self->app;
-  my $req = $app->req;
+  my $req = $self->req;
+
+  dmsg $self, $app, $req;
 
   # say Dumper($app->option($self->stash->{board}{name}))
+
+  # template 'board-index.tx';
   
   $self->render(template('board-index.tx', {
     board => $self->stash->{board},
@@ -40,7 +46,7 @@ method view_thread ($board_path, $thread_no) {
 }
 
 method new_post ($board_path) {
-  my $req = $self->app->req;
+  my $req = $self->req;
   my $params = $req->parameters;
   my $uploads = $req->uploads;
   my $dbh = $self->app->dbh;
@@ -61,7 +67,7 @@ method new_post ($board_path) {
 
   }
 
-  $self->render('<pre>' . Dumper($self->app->req) . '</pre>')
+  $self->render('<pre>' . dmsg($self->req) . '</pre>')
 }
 
 1

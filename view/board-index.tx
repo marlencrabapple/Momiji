@@ -102,18 +102,15 @@
   <hr>
 
   <form name="delete" method="POST">
-
   : for $threads -> $thread {
 
     <div class="thread">
-
     : for $posts -> $post {
-
       : if $post.parent == nil {
       
       <div class="post op" id="no<: $post.no :>">
         <div class="post-inner">
-
+          
           : if $post.file != nil {
 
           <div class="file">
@@ -155,7 +152,6 @@
       </div>
 
       : }
-
       : else {
 
       : }

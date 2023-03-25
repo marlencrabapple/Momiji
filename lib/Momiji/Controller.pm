@@ -7,7 +7,6 @@ use utf8;
 use v5.36;
 
 # use Text::Xslate;
-
 # use Exporter 'import';
 
 # our @EXPORT = qw(template);
@@ -18,7 +17,7 @@ $Frame::Controller::template_vars->@{qw/default_style static_res_base/}
 # state $tx_default = Text::Xslate->new(
 #   cache => $ENV{'PLACK_ENV'} && $ENV{'PLACK_ENV'} eq 'development' ? 0 : 1,
 #   path => ['view'],
-#   pre_process_handler => sub {
+#   pre_process_handler => sub { 
 #     my $text = shift;
 #     $text =~ s/\n+\s*/ /g;
 #     $text
@@ -26,9 +25,6 @@ $Frame::Controller::template_vars->@{qw/default_style static_res_base/}
 # );
 
 # $Frame::Controller::tx_default = $tx_default;
-
-dmsg "asdf";
-dmsg $INC[0];
 
 method option ($board, $opt_path) { # Maybe $board should be a $board_model since that has a ref to its board's config section
                                     # ...or I can think of something better

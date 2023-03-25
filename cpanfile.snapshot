@@ -95,10 +95,10 @@ DISTRIBUTIONS
       Module::Build::Tiny 0.035
       URI::Escape 0
       perl 5.008001
-  Cpanel-JSON-XS-4.32
-    pathname: R/RU/RURBAN/Cpanel-JSON-XS-4.32.tar.gz
+  Cpanel-JSON-XS-4.35
+    pathname: R/RU/RURBAN/Cpanel-JSON-XS-4.35.tar.gz
     provides:
-      Cpanel::JSON::XS 4.32
+      Cpanel::JSON::XS 4.35
       Cpanel::JSON::XS::Type undef
     requirements:
       Carp 0
@@ -232,6 +232,31 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 6.48
       Test::Simple 0.90
       perl 5.008001
+  Data-Dump-1.25
+    pathname: G/GA/GARU/Data-Dump-1.25.tar.gz
+    provides:
+      Data::Dump 1.25
+      Data::Dump::FilterContext undef
+      Data::Dump::Filtered undef
+      Data::Dump::Trace 0.02
+      Data::Dump::Trace::Call 0.02
+      Data::Dump::Trace::Wrapper 0.02
+    requirements:
+      ExtUtils::MakeMaker 0
+      Symbol 0
+      Test 0
+      perl 5.006
+  Data-Dumper-Concise-2.023
+    pathname: E/ET/ETHER/Data-Dumper-Concise-2.023.tar.gz
+    provides:
+      Data::Dumper::Concise 2.023
+      Data::Dumper::Concise::Sugar 2.023
+      Devel::Dwarn undef
+    requirements:
+      Data::Dumper 0
+      Exporter 0
+      ExtUtils::MakeMaker 0
+      perl 5.006
   Data-MessagePack-1.02
     pathname: S/SY/SYOHEX/Data-MessagePack-1.02.tar.gz
     provides:
@@ -824,13 +849,13 @@ DISTRIBUTIONS
       Test::Builder::Module 0
       Time::HiRes 0
       perl 5.010
-  Future-AsyncAwait-0.62
-    pathname: P/PE/PEVANS/Future-AsyncAwait-0.62.tar.gz
+  Future-AsyncAwait-0.64
+    pathname: P/PE/PEVANS/Future-AsyncAwait-0.64.tar.gz
     provides:
-      Future::AsyncAwait 0.62
-      Future::AsyncAwait::Awaitable 0.62
-      Future::AsyncAwait::ExtensionBuilder 0.62
-      Test::Future::AsyncAwait::Awaitable 0.62
+      Future::AsyncAwait 0.64
+      Future::AsyncAwait::Awaitable 0.64
+      Future::AsyncAwait::ExtensionBuilder 0.64
+      Test::Future::AsyncAwait::Awaitable 0.64
     requirements:
       ExtUtils::CBuilder 0
       Future 0.48
@@ -1907,6 +1932,34 @@ DISTRIBUTIONS
       WWW::Form::UrlEncoded 0.23
       parent 0
       perl 5.008001
+  Plack-Middleware-Debug-0.18
+    pathname: M/MI/MIYAGAWA/Plack-Middleware-Debug-0.18.tar.gz
+    provides:
+      Plack::Middleware::Debug 0.18
+      Plack::Middleware::Debug::Base 0.18
+      Plack::Middleware::Debug::CatalystLog 0.18
+      Plack::Middleware::Debug::DBITrace 0.18
+      Plack::Middleware::Debug::Environment 0.18
+      Plack::Middleware::Debug::Memory 0.18
+      Plack::Middleware::Debug::ModuleVersions 0.18
+      Plack::Middleware::Debug::Panel undef
+      Plack::Middleware::Debug::Parameters undef
+      Plack::Middleware::Debug::PerlConfig 0.18
+      Plack::Middleware::Debug::Response 0.18
+      Plack::Middleware::Debug::Session undef
+      Plack::Middleware::Debug::Timer 0.18
+      Plack::Middleware::Debug::TrackObjects undef
+    requirements:
+      Class::Method::Modifiers 1.05
+      Data::Dump 0
+      Data::Dumper::Concise 0
+      Encode 2.23
+      File::ShareDir 1.00
+      Module::Build::Tiny 0.034
+      Plack 0
+      Text::MicroTemplate 0.15
+      parent 0
+      perl 5.008001
   Proc-Wait3-0.05
     pathname: C/CT/CTILMES/Proc-Wait3-0.05.tar.gz
     provides:
@@ -2081,10 +2134,10 @@ DISTRIBUTIONS
     requirements:
       ExtUtils::MakeMaker 6.30
       IO::File 1.14
-  Struct-Dumb-0.13
-    pathname: P/PE/PEVANS/Struct-Dumb-0.13.tar.gz
+  Struct-Dumb-0.14
+    pathname: P/PE/PEVANS/Struct-Dumb-0.14.tar.gz
     provides:
-      Struct::Dumb 0.13
+      Struct::Dumb 0.14
     requirements:
       Module::Build 0.4004
   Sub-Exporter-Progressive-0.001013
@@ -2336,6 +2389,17 @@ DISTRIBUTIONS
       Module::Build 0.4005
       parent 0
       perl 5.008005
+  Text-MicroTemplate-0.24
+    pathname: K/KA/KAZUHO/Text-MicroTemplate-0.24.tar.gz
+    provides:
+      Text::MicroTemplate 0.24
+      Text::MicroTemplate::EncodedString 0.24
+      Text::MicroTemplate::File undef
+    requirements:
+      ExtUtils::MakeMaker 6.59
+      File::Temp 0
+      Test::More 0
+      perl 5.008000
   Text-Xslate-v3.5.9
     pathname: S/SK/SKAJI/Text-Xslate-v3.5.9.tar.gz
     provides:
@@ -2549,13 +2613,13 @@ DISTRIBUTIONS
       Fcntl 0
       URI 1.10
       perl 5.008001
-  XS-Parse-Keyword-0.32
-    pathname: P/PE/PEVANS/XS-Parse-Keyword-0.32.tar.gz
+  XS-Parse-Keyword-0.33
+    pathname: P/PE/PEVANS/XS-Parse-Keyword-0.33.tar.gz
     provides:
-      XS::Parse::Infix 0.32
-      XS::Parse::Infix::Builder 0.32
-      XS::Parse::Keyword 0.32
-      XS::Parse::Keyword::Builder 0.32
+      XS::Parse::Infix 0.33
+      XS::Parse::Infix::Builder 0.33
+      XS::Parse::Keyword 0.33
+      XS::Parse::Keyword::Builder 0.33
     requirements:
       ExtUtils::CBuilder 0
       ExtUtils::CChecker 0.11
@@ -2592,34 +2656,33 @@ DISTRIBUTIONS
       perl 5.008001
       strict 0
       warnings 0
-  libwww-perl-6.67
-    pathname: O/OA/OALDERS/libwww-perl-6.67.tar.gz
+  libwww-perl-6.68
+    pathname: O/OA/OALDERS/libwww-perl-6.68.tar.gz
     provides:
-      LWP 6.67
-      LWP::Authen::Basic 6.67
-      LWP::Authen::Digest 6.67
-      LWP::Authen::Ntlm 6.67
-      LWP::ConnCache 6.67
-      LWP::Debug 6.67
-      LWP::Debug::TraceHTTP 6.67
-      LWP::DebugFile 6.67
-      LWP::MemberMixin 6.67
-      LWP::Protocol 6.67
-      LWP::Protocol::cpan 6.67
-      LWP::Protocol::data 6.67
-      LWP::Protocol::file 6.67
-      LWP::Protocol::ftp 6.67
-      LWP::Protocol::gopher 6.67
-      LWP::Protocol::http 6.67
-      LWP::Protocol::loopback 6.67
-      LWP::Protocol::mailto 6.67
-      LWP::Protocol::nntp 6.67
-      LWP::Protocol::nogo 6.67
-      LWP::RobotUA 6.67
-      LWP::Simple 6.67
-      LWP::UserAgent 6.67
+      LWP 6.68
+      LWP::Authen::Basic 6.68
+      LWP::Authen::Digest 6.68
+      LWP::Authen::Ntlm 6.68
+      LWP::ConnCache 6.68
+      LWP::Debug 6.68
+      LWP::Debug::TraceHTTP 6.68
+      LWP::DebugFile 6.68
+      LWP::MemberMixin 6.68
+      LWP::Protocol 6.68
+      LWP::Protocol::cpan 6.68
+      LWP::Protocol::data 6.68
+      LWP::Protocol::file 6.68
+      LWP::Protocol::ftp 6.68
+      LWP::Protocol::gopher 6.68
+      LWP::Protocol::http 6.68
+      LWP::Protocol::loopback 6.68
+      LWP::Protocol::mailto 6.68
+      LWP::Protocol::nntp 6.68
+      LWP::Protocol::nogo 6.68
+      LWP::RobotUA 6.68
+      LWP::Simple 6.68
+      LWP::UserAgent 6.68
     requirements:
-      CPAN::Meta::Requirements 2.120620
       Digest::MD5 0
       Encode 2.12
       Encode::Locale 0
@@ -2629,19 +2692,18 @@ DISTRIBUTIONS
       File::Temp 0
       Getopt::Long 0
       HTML::Entities 0
-      HTML::HeadParser 0
+      HTML::HeadParser 3.71
       HTTP::Cookies 6
       HTTP::Date 6
       HTTP::Negotiate 6
-      HTTP::Request 6
-      HTTP::Request::Common 6
-      HTTP::Response 6
+      HTTP::Request 6.18
+      HTTP::Request::Common 6.18
+      HTTP::Response 6.18
       HTTP::Status 6.18
       IO::Select 0
       IO::Socket 0
       LWP::MediaTypes 6
       MIME::Base64 2.1
-      Module::Metadata 0
       Net::FTP 2.58
       Net::HTTP 6.18
       Scalar::Util 0

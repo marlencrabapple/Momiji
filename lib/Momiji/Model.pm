@@ -5,7 +5,6 @@ role Momiji::Model :does(Frame::Base);
 
 use utf8;
 use v5.36;
-use autodie;
 
 use Carp;
 use Data::Dumper;
@@ -72,6 +71,8 @@ method create_table {
     push @fields, $field
   }
 
+  # dmsg $self;
+  
   my $sql = $self->app->sqla->generate('CREATE TABLE IF NOT EXISTS', \$table, \@fields);
   # say Dumper($table, $columns, $constraints, \@fields, $sql);
 

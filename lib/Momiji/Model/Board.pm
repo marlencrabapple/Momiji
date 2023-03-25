@@ -5,7 +5,6 @@ class Momiji::Model::Board :does(Momiji::Model);
 
 use utf8;
 use v5.36;
-use autodie;
 
 use Momiji::Model::Board::Post;
 use Momiji::Model::Board::File;
@@ -23,7 +22,7 @@ field $file_model :reader;
 ADJUSTPARAMS ($params) {
   $post_model = Momiji::Model::Board::Post->new(
     table => "$name\_post",
-    app => $$params{app}
+    app => $self->app
   )
 }
 

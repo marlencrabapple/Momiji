@@ -12,8 +12,6 @@ use YAML::Tiny;
 use Data::Dumper;
 use List::Util 'any';
 
-dmsg "42345";
-
 ADJUST {
   $self->init_db
 }

@@ -5,7 +5,6 @@ class Momiji::Model::Board::Post :does(Momiji::Model);
 
 use utf8;
 use v5.36;
-use autodie;
 
 state $columns_base = Hash::Ordered->new(
   postno => {

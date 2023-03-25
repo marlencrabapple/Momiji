@@ -10,6 +10,8 @@ use Plack::App::File;
 builder {
   enable "Plack::Middleware::Static",
     path => sub { s!^/s/!! }, root => 'static/assets/';
+    
+  # enable 'Debug';
 
   mount '/favicon.ico' => Plack::App::File->new(file => 'static/assets/i/favicon.ico')->to_app;
   mount '/' , Momiji->new->to_psgi
