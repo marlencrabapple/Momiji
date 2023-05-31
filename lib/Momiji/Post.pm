@@ -1,7 +1,7 @@
 use Object::Pad;
 
 package Momiji::Post;
-class Momiji::Post;
+class Momiji::Post :does(Frame::Base);
 
 use utf8;
 use v5.36;
@@ -11,36 +11,43 @@ use Carp;
 use Momiji::File;
 use Text::Markdown::Hoedown;
 
-# field $app :param;
-field $board_model :param;
+field $board_model :param(model);
+field $board;
 field $post_model;
 field $file_model;
-field $dbrow;
+field $config;
 field $req;
+field $dbrow :mutator;
 
-field $postno;
+field $postno :reader;
+field $parent :reader;
 field $file;
 
 ADJUSTPARAMS ($params) {
+  $board = $board_model->name;
   $post_model //= $board_model->post_model;
   $file_model //= $board_model->file_model;
+  $config = $board_model->config;
 
   # if($$params{dbrow}) {
   #   $dbrow = $$params{dbrow};
   #   $file = Momiji::File->new($$)
   # }
   #elsif($$params{req}) {
-  if($$params{$req}) {
+  if($$params{req}) {
     $req = $$params{req};
     $self->validate_post;
     $self->format_post;
     $self->handle_files;
-    $self->save
+    $self->save($postno);
   }
   elsif($$params{postno}) {
     my $filerow;
     ($dbrow, $filerow) = $board_model->post($$params{postno});
-    $file = Momiji::File->new($filerow)
+    $file = Momiji::File->new($filerow);
+
+    $postno = $$params{postno};
+    $parent = $$dbrow{parent}
   }
   else {
     # die "Missing required arguments dbrow, req, or postno"
@@ -67,15 +74,20 @@ method save ($postno) {
 method handle_files {
   my @files;
 
+  my $max_files = $req->parameters->{parent}
+    ? $$config{max_files_reply}
+    : ($$config{max_files_op} // $$config{max_files_reply});
+
   my $i = 0;
 
-  foreach my $upload ($req->uploads) {
-    croak "Maximum number of files per post exceeded" if $i == $board_model->max_files_post;
+  foreach my $key (keys $req->uploads->%*) {
+    croak "Maximum number of files per post ($max_files) exceeded"
+      unless $i < $max_files;
 
-    my $file = Momiji::File->new($upload);
+    my $file = Momiji::File->new(upload => $req->uploads->{$key}, board_model => $board_model);
     push @files, $file;
 
-    say Dumper($file);
+    dmsg $file, $req->uploads->{$key}, $key, $req->uploads
   }
   continue {
     $i++
@@ -83,11 +95,23 @@ method handle_files {
 }
 
 method validate_post {
+  my $params = $req->parameters;
+  
+  die "Invalid thread"
+    if $$params{parent} && !$board_model->thread($$params{parent});
 
+  
 }
 
 method format_post {
 
+}
+
+method res_href {
+  {
+    postno => $self->postno,
+    $self->parent ? (parent => $self->parent) : (),
+  }
 }
 
 1

@@ -5,7 +5,6 @@ class Momiji::Model::Board::File :does(Momiji::Model);
 
 use utf8;
 use v5.36;
-use autodie;
 
 # CREATE TABLE "<: $board :>_file" (
 #   "fileid" INTEGER PRIMARY KEY NOT NULL,

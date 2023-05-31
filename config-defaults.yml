@@ -1,9 +1,9 @@
 ---
 charset: utf-8
 
-threads_per_page: 15
-max_replies: 5
-max_upload_replies: -1
+max_threads_page: 15
+max_replies_thread_page: 5 # Separate from potential 'thread_tail_len' option? Better name? Alias?
+max_file_replies_thread_page: ~ # " but 'thread_tail_file_len'
 max_pages: -1
 
 field_max_len: 256
@@ -22,7 +22,9 @@ post_default_options:
 display_sage: 1 # Maybe we'll come up with a better way to denote if something is bumped or not
                 # I don't want it to be analogous to up/downvotes
 
-upload_max_size: 5MB
+max_size_file: 5MB
+max_files_op: ~
+max_files_reply: 5
 
 thumbnail_op:
   w: 250

@@ -11,10 +11,14 @@ use Momiji::Model::Board::File;
 
 use Data::Dumper;
 
-field $name :param;
-field $max_threads_page :param :reader;
-field $config :param;
-field $config_top_lvl :param;
+# field $boards :common;
+our @models;
+
+field $name :param :reader;
+# field $max_threads_page :param :reader;
+# field $max_files_post :param :reader;
+field $config :param :reader;
+# field $config_top_lvl :param;
 
 field $post_model :reader;
 field $file_model :reader;
@@ -36,7 +40,7 @@ method threads ($page = 0) {
 
 method thread ($thread_no) {
   my @where = (
-    { postno => $thread_no, },
+    { postno => $thread_no },
     { parent => $thread_no }
   );
 
@@ -51,7 +55,7 @@ method thread ($thread_no) {
   }
 
   # Momiji::Thread->new(board_model => $self, posts => @posts)
-  \@posts
+  scalar @posts ? \@posts : undef
 }
 
 method post {

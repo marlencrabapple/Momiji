@@ -22,8 +22,8 @@ field $board_model :param;
 ADJUSTPARAMS ($params) {
   if($$params{upload}) {
     $upload = $$params{upload};
-    $path = path($$upload->path);
-    $original_filename = $$upload->filename;
+    $path = path($upload->path);
+    $original_filename = $upload->filename;
 
     $self->handle_thumbnail;
     $self->save;

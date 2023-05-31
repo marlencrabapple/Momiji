@@ -30,8 +30,8 @@ method startup {
   $r->get('/:asdf/:fdsa', sub ($c, $asdf, $fdsa) { $c->render($c->req->placeholders) });
 
   sub valid_board ($c, $board) {
-    ($c->stash->{board}) = grep { $board eq $$_{path} } $c->app->config->{boards}->@*;
-    $c->stash->{board} ? 1 : 0
+    (($c->stash->{board}) = grep { $board eq $$_{path} } $c->app->config->{boards}->@*)
+      ? 1 : 0
   };
 
   # Real world these should be auto-generated per board according to their configs
@@ -44,7 +44,9 @@ method startup {
   $r->get('/:board/:page', { board => \&valid_board, page => $isnum }, 'board#index');
   $r->get('/:board/thread/:no', { board => \&valid_board, no => $isnum }, 'board#view_thread');
 
-  $r->post('/:board/post', { board => \&valid_board }, 'board#new_post')
+  $r->post('/:board/post', { board => \&valid_board }, 'board#new_post');
+
+  $r->post('/testpost', sub ($c) { $c->render($c->req) })
 }
 
 # method valid_board {

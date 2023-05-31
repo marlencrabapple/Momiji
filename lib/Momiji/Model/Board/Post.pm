@@ -47,8 +47,8 @@ method post ($board_model, $arg, $cache = 1) {
   if($arg->isa('Momiji::Post')) { # New/edit post
     my $sth;
 
-    if($$arg{dbrow} && $$arg->has_changes) {
-      my %where = { postno => $$arg{dbrow}{postno} };
+    if($arg->dbrow && $arg->has_changes) {
+      my %where = { postno => $arg->postno };
 
       my $sql = $self->sqla->update;
       ...;
@@ -56,7 +56,7 @@ method post ($board_model, $arg, $cache = 1) {
       $sth = $self->dbh->prepare($sql);
       $sth->execute;
 
-      delete $$arg{dbrow} # This won't be updated if $cache != 0
+      $arg->dbrow = undef # This won't be updated if $cache != 0
     }
     else {
       my $sql = $self->sqla->insert;
