@@ -81,13 +81,15 @@ method handle_files {
   my $i = 0;
 
   foreach my $key (keys $req->uploads->%*) {
+    my $upload = $req->uploads->{$key};
+
     croak "Maximum number of files per post ($max_files) exceeded"
       unless $i < $max_files;
 
-    my $file = Momiji::File->new(upload => $req->uploads->{$key}, board_model => $board_model);
+    my $file = Momiji::File->new(upload => $upload, board_model => $board_model);
     push @files, $file;
 
-    dmsg $file, $req->uploads->{$key}, $key, $req->uploads
+    dmsg $file, $upload, $key, $req->uploads
   }
   continue {
     $i++

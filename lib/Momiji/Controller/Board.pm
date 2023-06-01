@@ -6,27 +6,15 @@ class Momiji::Controller::Board :does(Momiji::Controller);
 use utf8;
 use v5.36;
 
-# use Frame::Controller; # Until we can import template sub on :does
-
 use Momiji::Post;
 use Momiji::Thread;
-use Momiji::Model::Board;
 
-use Data::Dumper;
-use List::Util 'any';
 use Feature::Compat::Try;
-use Text::Markdown::Hoedown;
+
+field $board :accessor;
+ADJUST { $board = $self->boards->{$self->stash->{board}{name}} };
 
 method index ($board_path, $page = 0) {
-  my $app = $self->app;
-  my $req = $self->req;
-
-  # dmsg $self, $app, $req;
-
-  # say Dumper($app->option($self->stash->{board}{name}))
-
-  # template 'board-index.tx';
-  
   $self->render(template('board-index.tx', {
     board => $self->stash->{board},
     page => $page
@@ -35,9 +23,8 @@ method index ($board_path, $page = 0) {
 
 method view_thread ($board_path, $thread_no) {
   my $dbh = $self->app->dbh;
-  my $board = $self->stash->{board};
 
-  my $thread = $$board{model}->thread($thread_no);
+  my $thread = $board->thread($thread_no);
 
   $self->thread
     ? $self->render(template('board-index.tx', {
@@ -49,12 +36,9 @@ method view_thread ($board_path, $thread_no) {
 
 method new_post ($path) {
   my ($post, $status) = do {
-    # Try adding return if this doesn't work
     try {
-      dmsg $self->app->models->{$self->stash->{board}{name}}, $self->req, $self->app;
-
       (Momiji::Post->new(
-        model => $self->app->models->{$self->stash->{board}{name}},
+        model => $board,
         req => $self->req,
         app => $self->app
       ), 200);

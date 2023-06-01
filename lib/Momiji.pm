@@ -8,9 +8,7 @@ our $VERSION  = '0.01';
 use utf8;
 use v5.36;
 
-use YAML::Tiny;
 use Data::Dumper;
-use List::Util 'any';
 
 ADJUST {
   $self->init_db
@@ -29,16 +27,16 @@ method startup {
 
   $r->get('/:asdf/:fdsa', sub ($c, $asdf, $fdsa) { $c->render($c->req->placeholders) });
 
-  sub valid_board ($c, $board) {
-    (($c->stash->{board}) = grep { $board eq $$_{path} } $c->app->config->{boards}->@*)
-      ? 1 : 0
-  };
-
   # Real world these should be auto-generated per board according to their configs
   # But if I did go this route (ha) it'd be a good idea to give traversing our routes
   # level by level another shot, rather than by depth and then starting over when
   # something doesn't match (and skipping the no-match after starting over)
   state $isnum = qr/^[0-9]+$/;
+
+  # my $valid_board = sub ($self, $req, $path) {
+  #   (($req->stash->{board}) = grep { $path eq $$_{path} } $$config{boards}->@*)
+  #     ? 1 : 0
+  # };
 
   $r->get('/:board', { board => \&valid_board }, 'board#index');
   $r->get('/:board/:page', { board => \&valid_board, page => $isnum }, 'board#index');
@@ -49,9 +47,12 @@ method startup {
   $r->post('/testpost', sub ($c) { $c->render($c->req) })
 }
 
-# method valid_board {
-#   any { $$_{path} eq $req->placeholders->{board} } @$self->config->{boards}
-# }
+method boards { $self->models }
+
+method valid_board ($req, $path) {
+  (($req->stash->{board}) = grep { $path eq $$_{path} } $self->config->{boards}->@*)
+    ? 1 : 0
+}
 
 1
 __END__
