@@ -40,12 +40,20 @@ nav.main a {
   font-size: small
 }
 
+nav.main span::after {
+  content: '/'
+}
+
+nav.main span:last-child::after {
+  content: ''
+}
+
 nav.main a:first-child {
-  margin-left: -2px
+  margin-left: -1px
 }
 
 nav.main a:last-child {
-  margin-right: -2px
+  margin-right: -1px
 }
 
 nav.main > div.links {

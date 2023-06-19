@@ -18,7 +18,7 @@ method init_db {
   
   foreach my $board ($$config{boards}->@*) {
     my $board_config = { %$config, %$board }; # This should be fine
-    delete $$board_config{boards};
+    # delete $$board_config{boards};
     lock_hashref_recurse($board_config);
 
     $$models{$$board{name}} = Momiji::Model::Board->new(

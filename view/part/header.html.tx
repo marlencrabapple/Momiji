@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <title>/asdf/ - Asdf</title>
+    <title>/<: $config.path :>/ - <: $config.title :></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="/asdf/ - Asdf is an image board running Momiji.">
+    <meta name="description" content="/<: $config.path :>/ - <: $config.title :> is an image board running Momiji.">
     <link rel="shortcut icon" href="<: $static_res_base :>i/favicon.ico">
     <link rel="stylesheet" type="text/css" href="<: $static_res_base :>css/momiji.css">
     <link rel="stylesheet" type="text/css" href="<: $static_res_base :>css/yotsublue.css" title="Yotsuba B">
@@ -17,15 +17,18 @@
     <div class="site-pane media-active">
       <nav class="main">
         <div class="boards">
-          <a href="">asdf</a> /
-          <a href="">fdsa</a>
+        : for $config.boards -> $board {
+          <span>
+            <a href="/<: $board.path :>/"><: $board.path :></a>
+          </span>
+        : }
         </div>
         <div class="links">
-          <a href="">Home</a>
+          <a href="/">Home</a>
         </div>
       </nav>
       <header>
-        <img src="" alt="asdf" title="asdf">
-        <h1 id="boardName">/asdf/ - Asdf</h1>
+        <img src="" alt="<: $config.title :>" title="<: $config.title :>">
+        <h1 id="boardName">/<: $config.path :>/ - <: $config.title :></h1>
       </header>
       <hr>
