@@ -1,5 +1,5 @@
 use utf8;
-use v5.36;
+use v5.38;
 
 use lib 'lib';
 

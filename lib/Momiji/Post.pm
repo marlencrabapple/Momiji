@@ -35,6 +35,7 @@ ADJUSTPARAMS ($params) {
   # }
   #elsif($$params{req}) {
   if($$params{req}) {
+    say 'hi';
     $req = $$params{req};
     $self->validate_post;
     $self->format_post;
@@ -98,11 +99,20 @@ method handle_files {
 
 method validate_post {
   my $params = $req->parameters;
+
+  dmsg $params;
   
   die "Invalid thread"
-    if $$params{parent} && !$board_model->thread($$params{parent});
+    if $$params{parent} && !$board_model->thread($$params{parent})
 
   
+  # Check field lengths
+  # Check for banned words
+  # Check if pass user (Momiji Maaku) or if captcha correct
+
+  # IP bans will be handled somewhere else
+  # 
+
 }
 
 method format_post {

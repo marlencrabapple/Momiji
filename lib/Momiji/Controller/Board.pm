@@ -15,6 +15,7 @@ field $board :accessor;
 
 ADJUST {
   $board = $self->boards->{$self->stash->{board}{name}};
+  dmsg $self->stash;
   $$Frame::Controller::template_vars{config} = $board->config;
   $$Frame::Controller::template_vars{board} = $board->config
 }

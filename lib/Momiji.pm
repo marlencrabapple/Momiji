@@ -6,7 +6,7 @@ class Momiji :does(Frame) :does(Momiji::Db);
 our $VERSION  = '0.01';
 
 use utf8;
-use v5.36;
+use v5.38;
 
 use Data::Dumper;
 
@@ -27,22 +27,21 @@ method startup {
 
   $r->get('/:asdf/:fdsa', sub ($c, $asdf, $fdsa) { $c->render($c->req->placeholders) });
 
+  use constant IS_NUM => qr/^[0-9]+$/;
+
+  my $board = $r->under('/board', sub ($c) {
+    int rand 2 ? $c->render_403('u r teh banned') : 1
+  });
+
   # Real world these should be auto-generated per board according to their configs
   # But if I did go this route (ha) it'd be a good idea to give traversing our routes
   # level by level another shot, rather than by depth and then starting over when
   # something doesn't match (and skipping the no-match after starting over)
-  state $isnum = qr/^[0-9]+$/;
+  $board->get('/:board', { board => \&valid_board }, 'board#index');
+  $board->get('/:board/:page', { board => \&valid_board, page => IS_NUM }, 'board#index');
+  $board->get('/:board/thread/:no', { board => \&valid_board, no => IS_NUM }, 'board#view_thread');
 
-  # my $valid_board = sub ($self, $req, $path) {
-  #   (($req->stash->{board}) = grep { $path eq $$_{path} } $$config{boards}->@*)
-  #     ? 1 : 0
-  # };
-
-  $r->get('/:board', { board => \&valid_board }, 'board#index');
-  $r->get('/:board/:page', { board => \&valid_board, page => $isnum }, 'board#index');
-  $r->get('/:board/thread/:no', { board => \&valid_board, no => $isnum }, 'board#view_thread');
-
-  $r->post('/:board/post', { board => \&valid_board }, 'board#new_post');
+  $board->post('/:board/post', { board => \&valid_board }, 'board#new_post');
 
   $r->post('/testpost', sub ($c) { $c->render($c->req) })
 }
@@ -50,6 +49,7 @@ method startup {
 method boards { $self->models }
 
 method valid_board ($req, $path) {
+  dmsg $req, $path;
   (($req->stash->{board}) = grep { $path eq $$_{path} } $self->config->{boards}->@*)
     ? 1 : 0
 }
