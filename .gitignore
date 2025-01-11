@@ -2,6 +2,7 @@
 ._*
 .carmel
 /local
+/vendor
 /static/boards/*
 !/static/boards/keep
 *.yml
@@ -21,3 +22,7 @@
 MYMETA.*
 !META.json
 /.prove
+*.crt
+*.pem
+*.key
+.perl-version

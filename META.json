@@ -4,7 +4,7 @@
       "Ian P Bradley <ian.bradley@studiocrabapple.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Milla version v1.0.21, Dist::Zilla version 6.030, CPAN::Meta::Converter version 2.150010",
+   "generated_by" : "Dist::Milla version v1.0.22, Dist::Zilla version 6.032, CPAN::Meta::Converter version 2.150010",
    "license" : [
       "perl_5"
    ],
@@ -37,7 +37,7 @@
             "Perl::Tidy" : "20221112"
          },
          "requires" : {
-            "Dist::Milla" : "v1.0.21",
+            "Dist::Milla" : "v1.0.22",
             "Plack::Middleware::REPL" : "0.01",
             "Test::Pod" : "1.41"
          }
@@ -47,6 +47,7 @@
             "DBD::SQLite" : "1.72",
             "DBI" : "1.643",
             "DateTime::TimeZone" : "2.57",
+            "Frame" : "v0.1.3",
             "GD" : "2.76",
             "HTTP::Tinyish" : "0.18",
             "Hash::Ordered" : "0.014",
@@ -58,18 +59,18 @@
             "List::Util" : "1.63",
             "List::UtilsBy" : "0.12",
             "Net::SSLeay" : "1.92",
-            "Path::Tiny" : "0.142",
-            "Plack" : "1.0050",
+            "Net::Server::Proto::SSL" : "0",
             "Plack::App::File" : "0",
             "Plack::Builder" : "0",
             "Plack::Middleware::Debug" : "0",
             "Plack::Middleware::Static" : "0",
             "SQL::Abstract" : "2.000001",
+            "TOML::Tiny" : "0",
             "Text::Markdown::Hoedown" : "1.03",
             "Text::Xslate" : "v3.5.9",
             "Time::Moment" : "0.44",
             "YAML::Tiny" : "1.73",
-            "perl" : "v5.36.0"
+            "perl" : "v5.40.0"
          }
       },
       "test" : {
@@ -78,7 +79,7 @@
          }
       }
    },
-   "release_status" : "stable",
+   "release_status" : "testing",
    "resources" : {
       "bugtracker" : {
          "web" : "https://github.com/marlencrabapple/Momiji/issues"
@@ -91,8 +92,8 @@
       }
    },
    "version" : "0.01",
-   "x_generated_by_perl" : "v5.38.0",
-   "x_serialization_backend" : "Cpanel::JSON::XS version 4.36",
+   "x_generated_by_perl" : "v5.40.0",
+   "x_serialization_backend" : "Cpanel::JSON::XS version 4.39",
    "x_spdx_expression" : "Artistic-1.0-Perl OR GPL-1.0-or-later",
    "x_static_install" : 1
 }

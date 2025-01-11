@@ -15,3 +15,5 @@ use v5.36;
 #                    --value (e.g one {ffprobe: ..., exiftool: ..., mediainfo: ...})
 #   "status" TINYINT --Processing, etc.
 # );
+
+1

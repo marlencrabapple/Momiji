@@ -6,9 +6,10 @@ class Momiji :does(Frame) :does(Momiji::Db);
 our $VERSION  = '0.01';
 
 use utf8;
-use v5.38;
+use v5.40;
 
 use Data::Dumper;
+use HTML::Escape;
 
 ADJUST {
   $self->init_db
@@ -20,12 +21,20 @@ method startup {
   
   $r->get('/', sub ($c) {
     $c->stash->{時} = time;
-    $c->render('<pre>' . Dumper($c, $self) . '</pre>')
+    $c->render('<pre>'
+      . escape_html(join '', Dumper($c, $self))
+      . '</pre>')
   });
 
-  $r->get('/r', sub ($c) { $c->render('<pre>' . Dumper($r->tree) . Dumper($r->patterns) . '</pre>') });
+  $r->get('/r', sub ($c) {
+    $c->render('<pre>'
+      . escape_html(Dumper($r->tree) . Dumper($r->patterns))
+      . '</pre>')
+  });
 
-  $r->get('/:asdf/:fdsa', sub ($c, $asdf, $fdsa) { $c->render($c->req->placeholders) });
+  $r->get('/:asdf/:fdsa', sub ($c, $asdf, $fdsa) {
+    $c->render($c->req->placeholders)
+  });
 
   use constant IS_NUM => qr/^[0-9]+$/;
 
@@ -33,10 +42,10 @@ method startup {
     int rand 2 ? $c->render_403('u r teh banned') : 1
   });
 
-  # Real world these should be auto-generated per board according to their configs
-  # But if I did go this route (ha) it'd be a good idea to give traversing our routes
-  # level by level another shot, rather than by depth and then starting over when
-  # something doesn't match (and skipping the no-match after starting over)
+  # Real world these should be auto-generated per board according to their
+  # configs but if I did go this route (ha) it'd be a good idea to give
+  # traversing our routeslevel by level another shot, rather than by depth and
+  # then starting over when something doesn't match (and skipping the no-match # after starting over)
   $board->get('/:board', { board => \&valid_board }, 'board#index');
   $board->get('/:board/:page', { board => \&valid_board, page => IS_NUM }, 'board#index');
   $board->get('/:board/thread/:no', { board => \&valid_board, no => IS_NUM }, 'board#view_thread');
@@ -49,7 +58,7 @@ method startup {
 method boards { $self->models }
 
 method valid_board ($req, $path) {
-  dmsg $req, $path;
+  # dmsg $req, $path;
   (($req->stash->{board}) = grep { $path eq $$_{path} } $self->config->{boards}->@*)
     ? 1 : 0
 }

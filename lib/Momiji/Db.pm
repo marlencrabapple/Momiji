@@ -6,7 +6,7 @@ role Momiji::Db :does(Frame::Db::SQLite);
 use utf8;
 use v5.36;
 
-dmsg 'asdf' if $ENV{'FRAME_DEBUG'};
+# dmsg 'asdf' if $ENV{FRAME_DEBUG};
 
 use Hash::Util 'lock_hashref_recurse';
 use Momiji::Model::Board;
